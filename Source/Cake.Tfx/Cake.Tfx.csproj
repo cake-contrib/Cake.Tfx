@@ -50,9 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Create\TfxCreateRunner.cs" />
-    <Compile Include="Create\TfxCreateSettings.cs" />
+    <Compile Include="Extension\Create\TfxExtensionCreateArgumentBuilder.cs" />
+    <Compile Include="Extension\Create\TfxExtensionCreateRunner.cs" />
+    <Compile Include="Extension\Create\TfxExtensionCreateSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TfxArgumentBuilder.cs" />
+    <Compile Include="TfxCommonSettings.cs" />
+    <Compile Include="TfxOutputType.cs" />
     <Compile Include="TfxTool.cs" />
   </ItemGroup>
   <ItemGroup>
