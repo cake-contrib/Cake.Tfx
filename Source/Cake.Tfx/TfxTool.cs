@@ -43,7 +43,7 @@ namespace Cake.Tfx
         /// <returns>The tool executable name.</returns>
         protected sealed override IEnumerable<string> GetToolExecutableNames()
         {
-            return new[] { "tfx","tfx.cmd" };
+            return new[] { "tfx.cmd", "tfx" };
         }
     }
 }

@@ -39,10 +39,10 @@ namespace Cake.Tfx.Extension.Create
                 }
             }
 
-            if (string.IsNullOrWhiteSpace(Settings.Override))
+            if (!string.IsNullOrWhiteSpace(Settings.Override))
             {
                 Builder.Append("--override");
-                Builder.Append(Settings.Override);
+                Builder.AppendQuoted(Settings.Override);
             }
 
             if (Settings.OverridesFile != null)
@@ -56,16 +56,16 @@ namespace Cake.Tfx.Extension.Create
                 Builder.Append("--bypass-validation");
             }
 
-            if (string.IsNullOrWhiteSpace(Settings.Publisher))
+            if (!string.IsNullOrWhiteSpace(Settings.Publisher))
             {
                 Builder.Append("--publisher");
-                Builder.Append(Settings.Publisher);
+                Builder.AppendQuoted(Settings.Publisher);
             }
 
-            if (string.IsNullOrWhiteSpace(Settings.ExtensionId))
+            if (!string.IsNullOrWhiteSpace(Settings.ExtensionId))
             {
                 Builder.Append("--extension-id");
-                Builder.Append(Settings.ExtensionId);
+                Builder.AppendQuoted(Settings.ExtensionId);
             }
 
             if (Settings.OutputPath != null)
@@ -74,10 +74,10 @@ namespace Cake.Tfx.Extension.Create
                 Builder.AppendQuoted(Settings.OutputPath.MakeAbsolute(Environment).FullPath);
             }
 
-            if (string.IsNullOrWhiteSpace(Settings.LocRoot))
+            if (!string.IsNullOrWhiteSpace(Settings.LocRoot))
             {
                 Builder.Append("--loc-root");
-                Builder.Append(Settings.LocRoot);
+                Builder.AppendQuoted(Settings.LocRoot);
             }
         }
     }

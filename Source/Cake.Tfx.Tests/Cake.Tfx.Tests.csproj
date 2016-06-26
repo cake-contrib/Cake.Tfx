@@ -70,10 +70,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fixtures\TfxExtensionCreateRunnerFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TfxExtensionCreateRunnerTests.cs" />
+    <Compile Include="TfxFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.Tfx\Cake.Tfx.csproj">
+      <Project>{8a2ef454-d0b6-4de6-8961-2b806c2f882f}</Project>
+      <Name>Cake.Tfx</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
