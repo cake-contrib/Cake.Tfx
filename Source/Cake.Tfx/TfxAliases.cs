@@ -13,12 +13,13 @@ namespace Cake.Tfx
         /// <summary>
         /// Runs ReSharperReports against the specified input FilePath, and outputs to specified output FilePath
         /// </summary>
+        /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
         /// TfxExtensionCreate(new TfxExtensionCreateSettings()
         /// {
-        ///     ManifestGlobs = new List<string>(){ ".\extension-manifest.json" }
+        ///     ManifestGlobs = new List&lt;string&gt;(){ ".\extension-manifest.json" }
         /// });
         /// </code>
         /// </example>

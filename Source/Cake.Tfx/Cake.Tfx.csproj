@@ -21,6 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>Cake.Tfx.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Cake.Tfx.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>Cake.Tfx.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Cake.Tfx.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cake.Common, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL">
