@@ -6,7 +6,7 @@ namespace Cake.Tfx.Extension.Create
     /// <summary>
     /// Contains settings used by <see cref="TfxExtensionCreateRunner"/>.
     /// </summary>
-    public sealed class TfxExtensionCreateSettings : TfxCommonSettings
+    public sealed class TfxExtensionCreateSettings : TfxSettings
     {
         /// <summary>
         /// Gets or sets the Root directory to be used when creating extension.

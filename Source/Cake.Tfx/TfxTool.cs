@@ -10,7 +10,7 @@ namespace Cake.Tfx
     /// </summary>
     /// <typeparam name="TSettings">The settings type.</typeparam>
     public abstract class TfxTool<TSettings> : Tool<TSettings>
-        where TSettings : ToolSettings
+        where TSettings : TfxSettings
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxTool{TSettings}"/> class.
@@ -44,6 +44,18 @@ namespace Cake.Tfx
         protected sealed override IEnumerable<string> GetToolExecutableNames()
         {
             return new[] { "tfx.cmd", "tfx" };
+        }
+
+        /// <summary>
+        /// Runs the TFX tool with the specified settings.
+        /// </summary>
+        /// <typeparam name="TBuilder">The TFX argument builder.</typeparam>
+        /// <param name="settings">The settings.</param>
+        /// <param name="builder">The builder.</param>
+        protected void RunTfx<TBuilder>(TSettings settings, TBuilder builder)
+            where TBuilder : TfxArgumentBuilder<TSettings>
+        {
+            Run(settings, builder.GetArguments());
         }
     }
 }
