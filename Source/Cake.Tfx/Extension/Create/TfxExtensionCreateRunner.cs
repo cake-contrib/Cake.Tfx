@@ -10,7 +10,7 @@ namespace Cake.Tfx.Extension.Create
     /// </summary>
     public sealed class TfxExtensionCreateRunner : TfxTool<TfxExtensionCreateSettings>
     {
-        private readonly ICakeEnvironment environment;
+        private readonly ICakeEnvironment _environment;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxExtensionCreateRunner"/> class.
@@ -26,7 +26,7 @@ namespace Cake.Tfx.Extension.Create
             IToolLocator tools)
             : base(fileSystem, environment, processRunner, tools)
         {
-            this.environment = environment;
+            _environment = environment;
         }
 
         /// <summary>
@@ -37,11 +37,10 @@ namespace Cake.Tfx.Extension.Create
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
-            var builder = new TfxExtensionCreateArgumentBuilder(this.environment, settings);
-            this.Run(settings, builder.Get());
+            RunTfx(settings, new TfxExtensionCreateArgumentBuilder(_environment, settings));
         }
     }
 }

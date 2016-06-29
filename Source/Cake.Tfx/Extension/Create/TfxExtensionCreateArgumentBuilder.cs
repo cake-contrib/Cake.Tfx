@@ -6,7 +6,7 @@ namespace Cake.Tfx.Extension.Create
     /// <summary>
     /// The Argument Builder for the Create Extension method of the Tfx CLI.
     /// </summary>
-    internal class TfxExtensionCreateArgumentBuilder : TfxArgumentBuilder<TfxExtensionCreateSettings>
+    internal sealed class TfxExtensionCreateArgumentBuilder : TfxArgumentBuilder<TfxExtensionCreateSettings>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxExtensionCreateArgumentBuilder"/> class.
@@ -19,76 +19,69 @@ namespace Cake.Tfx.Extension.Create
         }
 
         /// <summary>
-        /// Fetch the populated Argument Builder
+        /// Adds the arguments to the specified argument builder.
         /// </summary>
-        /// <returns>An instance of <see cref="ProcessArgumentBuilder"/> for this command.</returns>
-        public ProcessArgumentBuilder Get()
+        /// <param name="builder">The builder.</param>
+        /// <param name="settings">The settings.</param>
+        protected override void AddArguments(ProcessArgumentBuilder builder, TfxExtensionCreateSettings settings)
         {
-            this.AppendExtensionCreateArguments();
-            this.AppendCommonArguments();
+            builder.Append("extension create");
 
-            return this.Builder;
-        }
-
-        private void AppendExtensionCreateArguments()
-        {
-            this.Builder.Append("extension create");
-
-            if (this.Settings.Root != null)
+            if (settings.Root != null)
             {
-                this.Builder.Append("--root");
-                this.Builder.AppendQuoted(this.Settings.Root.MakeAbsolute(this.Environment).FullPath);
+                builder.Append("--root");
+                builder.AppendQuoted(settings.Root.MakeAbsolute(Environment).FullPath);
             }
 
-            if (this.Settings.ManifestGlobs != null && this.Settings.ManifestGlobs.Count > 0)
+            if (settings.ManifestGlobs != null && settings.ManifestGlobs.Count > 0)
             {
-                this.Builder.Append("--manifest-globs");
+                builder.Append("--manifest-globs");
 
-                foreach (var manifestGlob in this.Settings.ManifestGlobs)
+                foreach (var manifestGlob in settings.ManifestGlobs)
                 {
-                    this.Builder.AppendQuoted(manifestGlob);
+                    builder.AppendQuoted(manifestGlob);
                 }
             }
 
-            if (!string.IsNullOrWhiteSpace(this.Settings.Override))
+            if (!string.IsNullOrWhiteSpace(settings.Override))
             {
-                this.Builder.Append("--override");
-                this.Builder.AppendQuoted(this.Settings.Override);
+                builder.Append("--override");
+                builder.AppendQuoted(settings.Override);
             }
 
-            if (this.Settings.OverridesFile != null)
+            if (settings.OverridesFile != null)
             {
-                this.Builder.Append("--overrides-file");
-                this.Builder.AppendQuoted(this.Settings.OverridesFile.MakeAbsolute(this.Environment).FullPath);
+                builder.Append("--overrides-file");
+                builder.AppendQuoted(settings.OverridesFile.MakeAbsolute(Environment).FullPath);
             }
 
-            if (this.Settings.BypassValidation)
+            if (settings.BypassValidation)
             {
-                this.Builder.Append("--bypass-validation");
+                builder.Append("--bypass-validation");
             }
 
-            if (!string.IsNullOrWhiteSpace(this.Settings.Publisher))
+            if (!string.IsNullOrWhiteSpace(settings.Publisher))
             {
-                this.Builder.Append("--publisher");
-                this.Builder.AppendQuoted(this.Settings.Publisher);
+                builder.Append("--publisher");
+                builder.AppendQuoted(settings.Publisher);
             }
 
-            if (!string.IsNullOrWhiteSpace(this.Settings.ExtensionId))
+            if (!string.IsNullOrWhiteSpace(settings.ExtensionId))
             {
-                this.Builder.Append("--extension-id");
-                this.Builder.AppendQuoted(this.Settings.ExtensionId);
+                builder.Append("--extension-id");
+                builder.AppendQuoted(settings.ExtensionId);
             }
 
-            if (this.Settings.OutputPath != null)
+            if (settings.OutputPath != null)
             {
-                this.Builder.Append("--output-path");
-                this.Builder.AppendQuoted(this.Settings.OutputPath.MakeAbsolute(this.Environment).FullPath);
+                builder.Append("--output-path");
+                builder.AppendQuoted(settings.OutputPath.MakeAbsolute(Environment).FullPath);
             }
 
-            if (!string.IsNullOrWhiteSpace(this.Settings.LocRoot))
+            if (!string.IsNullOrWhiteSpace(settings.LocRoot))
             {
-                this.Builder.Append("--loc-root");
-                this.Builder.AppendQuoted(this.Settings.LocRoot);
+                builder.Append("--loc-root");
+                builder.AppendQuoted(settings.LocRoot);
             }
         }
     }

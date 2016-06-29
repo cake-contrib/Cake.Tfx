@@ -5,7 +5,7 @@ namespace Cake.Tfx
     /// <summary>
     /// Contains the common settings used by all commands in Tfx.
     /// </summary>
-    public abstract class TfxCommonSettings : ToolSettings
+    public abstract class TfxSettings : ToolSettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether to save arguments for the next time a command in this command group is run.
