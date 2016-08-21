@@ -36,7 +36,7 @@ var solutionFilePath          = "./Source/Cake.Tfx.sln";
 var solutionDirectoryPath     = "./Source/Cake.Tfx";
 var title                     = "Cake.Tfx";
 var resharperSettingsFileName = "Cake.Tfx.sln.DotSettings";
-var repositoryOwner           = "cake-build";
+var repositoryOwner           = "cake-contrib";
 var repositoryName            = "Cake.Tfx";
 
 // NOTE: Only populate this, if required, but leave as is otherwise.
