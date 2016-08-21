@@ -26,4 +26,4 @@ Cake.Tfx is an Addin for [Cake](http://cakebuild.net/) which allows the executio
 ## Chat Room
 Come join in the conversation about Cake.Tfx in our Gitter Chat Room
 
-[![Join the chat at https://gitter.im/gep13/Cake.Tfx](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gep13/Cake.Tfx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/cake-contrib/Lobby](https://badges.gitter.im/cake-contrib/Lobby.svg)](https://gitter.im/cake-contrib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
