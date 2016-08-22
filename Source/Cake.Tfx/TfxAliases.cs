@@ -5,7 +5,14 @@ using Cake.Tfx.Extension.Create;
 namespace Cake.Tfx
 {
     /// <summary>
-    /// Contains aliases related to Tfx CLI
+    /// <para>Contains functionality related to the <see href="https://github.com/Microsoft/tfs-cli#install">TFS Cross Platform Command Line Interface</see>.</para>
+    /// <para>
+    /// In order to use the commands for this addin, the tfx-cli utility will need to be installed and available, or you will need to provide a ToolPath to where it can be located, and also you will need to include the following in your build.cake file to download and
+    /// reference the addin from NuGet.org:
+    /// <code>
+    /// #addin Cake.Tfx
+    /// </code>
+    /// </para>
     /// </summary>
     [CakeAliasCategory("Tfx")]
     public static class TfxAliases
