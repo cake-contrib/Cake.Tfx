@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="Extension\Create\TfxExtensionCreateArgumentBuilder.cs" />
     <Compile Include="Extension\Create\TfxExtensionCreateRunner.cs" />
     <Compile Include="Extension\Create\TfxExtensionCreateSettings.cs" />
