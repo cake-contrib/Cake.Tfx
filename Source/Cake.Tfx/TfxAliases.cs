@@ -7,11 +7,11 @@ namespace Cake.Tfx
     /// <summary>
     /// Contains aliases related to Tfx CLI
     /// </summary>
-    [CakeAliasCategory("ReSharper")]
+    [CakeAliasCategory("Tfx")]
     public static class TfxAliases
     {
         /// <summary>
-        /// Runs ReSharperReports against the specified input FilePath, and outputs to specified output FilePath
+        /// Creates an extension using the Tfx CLI using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
