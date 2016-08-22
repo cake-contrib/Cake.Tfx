@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Tfx", "Cake.Tfx\Cake.Tfx.csproj", "{8A2EF454-D0B6-4DE6-8961-2B806C2F882F}"
 EndProject
@@ -12,8 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppVeyor", "AppVeyor", "{55
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildScripts", "BuildScripts", "{6DD4D304-FDCE-405C-9A25-47B7E0BE6995}"
 	ProjectSection(SolutionItems) = preProject
-		..\build.cake = ..\build.cake
 		..\build.ps1 = ..\build.ps1
+		..\setup.cake = ..\setup.cake
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{F4453DA3-A839-447B-8861-35FFBDC74065}"

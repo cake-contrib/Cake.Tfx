@@ -8,11 +8,11 @@ using System;
 
 [assembly: AssemblyTitle("Cake.Tfx")]
 [assembly: AssemblyDescription("Cake Tfx AddIn")]
-[assembly: AssemblyCompany("gep13")]
+[assembly: AssemblyCompany("Cake Contributions")]
 [assembly: AssemblyProduct("Cake.Tfx")]
 [assembly: AssemblyVersion("0.3.1")]
 [assembly: AssemblyFileVersion("0.3.1")]
 [assembly: AssemblyInformationalVersion("0.3.1")]
-[assembly: AssemblyCopyright("Copyright � gep13 2016 - Present")]
+[assembly: AssemblyCopyright("Copyright © Cake Contributions 2016 - Present")]
 [assembly: CLSCompliant(true)]
 
