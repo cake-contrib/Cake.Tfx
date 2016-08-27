@@ -20,7 +20,7 @@ Cake.Tfx is an Addin for [Cake](http://cakebuild.net/) which allows the executio
 
 ## Code Coverage
 
-[![Coverage Status](https://coveralls.io/repos/github/cake-contrib/Cake.Tfx/badge.svg)](https://coveralls.io/github/cake-contrib/Cake.Tfx)
+[![Coverage Status](https://coveralls.io/repos/github/cake-contrib/Cake.Tfx/badge.svg?branch=develop)](https://coveralls.io/github/cake-contrib/Cake.Tfx?branch=develop)
 
 ## Quick Links
 
