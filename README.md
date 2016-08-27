@@ -18,6 +18,10 @@ Cake.Tfx is an Addin for [Cake](http://cakebuild.net/) which allows the executio
 |:--:|:--:|
 |[![Build status](https://ci.appveyor.com/api/projects/status/icb3n5ij9le1i5bv/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-tfx/branch/develop)|[![Build status](https://ci.appveyor.com/api/projects/status/icb3n5ij9le1i5bv/branch/develop?svg=true)](https://ci.appveyor.com/project/cakecontrib/cake-tfx/branch/master)|
 
+## Code Coverage
+
+[![Coverage Status](https://coveralls.io/repos/github/cake-contrib/Cake.Tfx/badge.svg)](https://coveralls.io/github/cake-contrib/Cake.Tfx)
+
 ## Quick Links
 
 - [Documentation](http://caketfx.readthedocs.org/en/develop/)
