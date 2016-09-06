@@ -6,83 +6,92 @@ namespace Cake.Tfx.Extension.Create
     /// <summary>
     /// The Argument Builder for the Create Extension method of the Tfx CLI.
     /// </summary>
-    internal sealed class TfxExtensionCreateArgumentBuilder : TfxArgumentBuilder<TfxExtensionCreateSettings>
+    internal sealed class TfxExtensionCreateArgumentBuilder : ITfxArgumentBuilder
     {
+        private readonly ICakeEnvironment _environment;
+        private readonly TfxExtensionCreateSettings _settings;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxExtensionCreateArgumentBuilder"/> class.
         /// </summary>
         /// <param name="environment">The environment.</param>
         /// <param name="settings">The settings.</param>
         public TfxExtensionCreateArgumentBuilder(ICakeEnvironment environment, TfxExtensionCreateSettings settings)
-            : base(environment, settings)
         {
+            _environment = environment;
+            _settings = settings;
         }
 
         /// <summary>
         /// Adds the arguments to the specified argument builder.
         /// </summary>
-        /// <param name="builder">The builder.</param>
-        /// <param name="settings">The settings.</param>
-        protected override void AddArguments(ProcessArgumentBuilder builder, TfxExtensionCreateSettings settings)
+        /// <returns>A populated <see cref="ProcessArgumentBuilder"/>.</returns>
+        public ProcessArgumentBuilder GetArguments()
         {
+            var builder = new ProcessArgumentBuilder();
+
             builder.Append("extension create");
 
-            if (settings.Root != null)
+            if (_settings.Root != null)
             {
                 builder.Append("--root");
-                builder.AppendQuoted(settings.Root.MakeAbsolute(Environment).FullPath);
+                builder.AppendQuoted(_settings.Root.MakeAbsolute(_environment).FullPath);
             }
 
-            if (settings.ManifestGlobs != null && settings.ManifestGlobs.Count > 0)
+            if (_settings.ManifestGlobs != null && _settings.ManifestGlobs.Count > 0)
             {
                 builder.Append("--manifest-globs");
 
-                foreach (var manifestGlob in settings.ManifestGlobs)
+                foreach (var manifestGlob in _settings.ManifestGlobs)
                 {
                     builder.AppendQuoted(manifestGlob);
                 }
             }
 
-            if (!string.IsNullOrWhiteSpace(settings.Override))
+            if (!string.IsNullOrWhiteSpace(_settings.Override))
             {
                 builder.Append("--override");
-                builder.AppendQuoted(settings.Override);
+                builder.AppendQuoted(_settings.Override);
             }
 
-            if (settings.OverridesFile != null)
+            if (_settings.OverridesFile != null)
             {
                 builder.Append("--overrides-file");
-                builder.AppendQuoted(settings.OverridesFile.MakeAbsolute(Environment).FullPath);
+                builder.AppendQuoted(_settings.OverridesFile.MakeAbsolute(_environment).FullPath);
             }
 
-            if (settings.BypassValidation)
+            if (_settings.BypassValidation)
             {
                 builder.Append("--bypass-validation");
             }
 
-            if (!string.IsNullOrWhiteSpace(settings.Publisher))
+            if (!string.IsNullOrWhiteSpace(_settings.Publisher))
             {
                 builder.Append("--publisher");
-                builder.AppendQuoted(settings.Publisher);
+                builder.AppendQuoted(_settings.Publisher);
             }
 
-            if (!string.IsNullOrWhiteSpace(settings.ExtensionId))
+            if (!string.IsNullOrWhiteSpace(_settings.ExtensionId))
             {
                 builder.Append("--extension-id");
-                builder.AppendQuoted(settings.ExtensionId);
+                builder.AppendQuoted(_settings.ExtensionId);
             }
 
-            if (settings.OutputPath != null)
+            if (_settings.OutputPath != null)
             {
                 builder.Append("--output-path");
-                builder.AppendQuoted(settings.OutputPath.MakeAbsolute(Environment).FullPath);
+                builder.AppendQuoted(_settings.OutputPath.MakeAbsolute(_environment).FullPath);
             }
 
-            if (!string.IsNullOrWhiteSpace(settings.LocRoot))
+            if (!string.IsNullOrWhiteSpace(_settings.LocRoot))
             {
                 builder.Append("--loc-root");
-                builder.AppendQuoted(settings.LocRoot);
+                builder.AppendQuoted(_settings.LocRoot);
             }
+
+            TfxArgumentBuilder.GetCommonArguments(builder, _settings);
+
+            return builder;
         }
     }
 }

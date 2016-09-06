@@ -73,8 +73,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fixtures\TfxExtensionCreateRunnerFixture.cs" />
+    <Compile Include="Fixtures\TfxExtensionInstallRunnerFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TfxExtensionCreateRunnerTests.cs" />
+    <Compile Include="TfxExtensionInstallRunnerTests.cs" />
     <Compile Include="TfxFixture.cs" />
   </ItemGroup>
   <ItemGroup>
