@@ -53,7 +53,7 @@ namespace Cake.Tfx
         /// <param name="settings">The settings.</param>
         /// <param name="builder">The builder.</param>
         protected void RunTfx<TBuilder>(TSettings settings, TBuilder builder)
-            where TBuilder : TfxArgumentBuilder<TSettings>
+            where TBuilder : ITfxArgumentBuilder
         {
             Run(settings, builder.GetArguments());
         }

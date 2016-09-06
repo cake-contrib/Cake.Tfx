@@ -7,65 +7,65 @@ namespace Cake.Tfx
     /// <summary>
     /// The top level argument builder for the Tfx CLI Tool
     /// </summary>
-    /// <typeparam name="T">The Settings type to build arguments from</typeparam>
-    public abstract class TfxArgumentBuilder<T>
-        where T : TfxSettings
+    public static class TfxArgumentBuilder
     {
-        private readonly ICakeEnvironment _environment;
-        private readonly ProcessArgumentBuilder _builder;
-        private readonly T _settings;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TfxArgumentBuilder{T}"/> class.
-        /// </summary>
-        /// <param name="environment">The environment.</param>
-        /// <param name="setting">The settings</param>
-        protected TfxArgumentBuilder(ICakeEnvironment environment, T setting)
-        {
-            _environment = environment;
-            _settings = setting;
-            _builder = new ProcessArgumentBuilder();
-        }
-
-        /// <summary>
-        /// Gets the Cake Environment
-        /// </summary>
-        protected ICakeEnvironment Environment => _environment;
-
-        /// <summary>
-        /// Gets the arguments.
-        /// </summary>
-        /// <returns>A populated argument builder.</returns>
-        public ProcessArgumentBuilder GetArguments()
-        {
-            AddArguments(_builder, _settings);
-            AddCommonArguments();
-            return _builder;
-        }
-
         /// <summary>
         /// Adds the arguments to the specified argument builder.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="settings">The settings.</param>
-        protected abstract void AddArguments(ProcessArgumentBuilder builder, T settings);
-
-        private void AddCommonArguments()
+        public static void GetCommonArguments(ProcessArgumentBuilder builder, TfxSettings settings)
         {
-            if (_settings.Save)
+            if (settings.Save)
             {
-                _builder.Append("--save");
+                builder.Append("--save");
             }
 
-            if (_settings.NoPrompt)
+            if (settings.NoPrompt)
             {
-                _builder.Append("--no-prompt");
+                builder.Append("--no-prompt");
             }
 
-            if (_settings.Output.HasValue)
+            if (settings.Output.HasValue)
             {
-                _builder.Append("--output");
-                _builder.Append(GetOutputName(_settings.Output.Value));
+                builder.Append("--output");
+                builder.Append(GetOutputName(settings.Output.Value));
+            }
+        }
+
+        public static void GetServerArguments(ProcessArgumentBuilder builder, TfxServerSettings settings)
+        {
+            builder.Append("--auth-type");
+            builder.Append(GetAuthName(settings.AuthType));
+
+            if (!string.IsNullOrWhiteSpace(settings.UserName))
+            {
+                builder.Append("--username");
+                builder.AppendQuoted(settings.UserName);
+            }
+
+            if (!string.IsNullOrWhiteSpace(settings.Password))
+            {
+                builder.Append("--password");
+                builder.AppendQuotedSecret(settings.Password);
+            }
+
+            if (!string.IsNullOrWhiteSpace(settings.Token))
+            {
+                builder.Append("--token");
+                builder.AppendQuotedSecret(settings.Token);
+            }
+
+            if (!string.IsNullOrWhiteSpace(settings.ServiceUrl))
+            {
+                builder.Append("--service-url");
+                builder.AppendQuoted(settings.ServiceUrl);
+            }
+
+            if (!string.IsNullOrWhiteSpace(settings.Proxy))
+            {
+                builder.Append("--proxy");
+                builder.AppendQuoted(settings.Proxy);
             }
         }
 
@@ -81,6 +81,19 @@ namespace Cake.Tfx
                     return "clipboard";
                 default:
                     throw new NotSupportedException("The provided output is not valid.");
+            }
+        }
+
+        private static string GetAuthName(TfxAuthType authType)
+        {
+            switch (authType)
+            {
+                case TfxAuthType.Pat:
+                    return "pat";
+                case TfxAuthType.Basic:
+                    return "basic";
+                default:
+                    throw new NotSupportedException("The provided authentication is not valid");
             }
         }
     }
