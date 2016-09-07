@@ -6,16 +6,6 @@
     public abstract class TfxServerSettings : TfxSettings
     {
         /// <summary>
-        /// Gets or sets the publisher ID instead of what is specified in the manifest.
-        /// </summary>
-        public string Publisher { get; set; }
-
-        /// <summary>
-        /// Gets or sets the extension ID instead of what is specified in the manifest.
-        /// </summary>
-        public string ExtensionId { get; set; }
-
-        /// <summary>
         /// Gets or sets the method of authentication.
         /// </summary>
         public TfxAuthType AuthType { get; set; }

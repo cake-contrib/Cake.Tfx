@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -32,15 +33,27 @@ namespace Cake.Tfx.Extension.Share
         /// <summary>
         /// Installs an extension using the specified settings.
         /// </summary>
+        /// <param name="vsixFilePath">The path to the VSIX.</param>
+        /// <param name="shareWith">The accounts to share the extension to.</param>
         /// <param name="settings">The settings.</param>
-        public void Share(TfxExtensionShareSettings settings)
+        public void Share(FilePath vsixFilePath, ICollection<string> shareWith, TfxExtensionShareSettings settings)
         {
+            if (vsixFilePath == null)
+            {
+                throw new ArgumentNullException(nameof(vsixFilePath));
+            }
+
+            if (shareWith == null || shareWith.Count == 0)
+            {
+                throw new ArgumentNullException(nameof(shareWith));
+            }
+
             if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            RunTfx(settings, new TfxExtensionShareArgumentBuilder(_environment, settings));
+            RunTfx(settings, new TfxExtensionShareArgumentBuilder(_environment, vsixFilePath, shareWith, settings));
         }
     }
 }

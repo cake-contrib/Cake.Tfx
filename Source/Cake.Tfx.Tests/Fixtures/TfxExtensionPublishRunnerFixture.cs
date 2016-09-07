@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using Cake.Core.IO;
-using Cake.Tfx.Extension.Share;
+using Cake.Tfx.Extension.Publish;
 
 namespace Cake.Tfx.Tests.Fixtures
 {
-    internal sealed class TfxExtensionShareRunnerFixture : TfxFixture<TfxExtensionShareSettings>
+    internal sealed class TfxExtensionPublishRunnerFixture : TfxFixture<TfxExtensionPublishSettings>
     {
         public FilePath VsixFilePath { get; set; }
 
         public ICollection<string> ShareWith { get; set; }
 
-        public TfxExtensionShareRunnerFixture()
+        public TfxExtensionPublishRunnerFixture()
         {
             VsixFilePath = "c:/temp/test.vsix";
         }
@@ -27,8 +27,8 @@ namespace Cake.Tfx.Tests.Fixtures
 
         protected override void RunTool()
         {
-            var tool = new TfxExtensionShareRunner(FileSystem, Environment, ProcessRunner, Tools);
-            tool.Share(VsixFilePath, ShareWith, Settings);
+            var tool = new TfxExtensionPublishRunner(FileSystem, Environment, ProcessRunner, Tools);
+            tool.Publish(VsixFilePath, ShareWith, Settings);
         }
     }
 }

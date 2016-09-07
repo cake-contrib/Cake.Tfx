@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cake.Core;
 using Cake.Testing;
 using Cake.Tfx.Tests.Fixtures;
@@ -17,6 +16,7 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings = null;
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -32,6 +32,7 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.GivenDefaultToolDoNotExist();
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -50,6 +51,7 @@ namespace Cake.Tfx.Tests
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.ToolPath = toolPath;
                 fixture.GivenSettingsToolPathExist();
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
@@ -64,6 +66,7 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.GivenProcessCannotStart();
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -79,6 +82,7 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.GivenProcessExitsWithCode(1);
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -93,6 +97,7 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
@@ -107,12 +112,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.Publisher = "gep13";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --publisher \"gep13\" --auth-type pat", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --publisher \"gep13\"", result.Args);
             }
 
             [Fact]
@@ -121,12 +127,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.ExtensionId = "cake-vso";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --extension-id \"cake-vso\" --auth-type pat", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --extension-id \"cake-vso\"", result.Args);
             }
 
             [Fact]
@@ -134,13 +141,13 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
-                fixture.Settings.Vsix = "./test.vsix";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --vsix \"/Working/test.vsix\" --auth-type pat", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat", result.Args);
             }
 
             [Fact]
@@ -148,13 +155,13 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
-                fixture.Settings.Accounts = new List<string> { "account1"};
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --accounts \"account1\" --auth-type pat", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat", result.Args);
             }
 
             [Fact]
@@ -162,23 +169,24 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
-                fixture.Settings.Accounts = new List<string> { "account1", "account2" };
+                fixture.GivenMultipleAccounts();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --accounts \"account1\" \"account2\" --auth-type pat", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" \"account2\" --auth-type pat", result.Args);
             }
 
             [Theory]
-            [InlineData(TfxAuthType.Pat, "extension install --auth-type pat")]
-            [InlineData(TfxAuthType.Basic, "extension install --auth-type basic")]
+            [InlineData(TfxAuthType.Pat, "extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat")]
+            [InlineData(TfxAuthType.Basic, "extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type basic")]
             public void Should_Add_AuthType_To_Arguments_If_Set(TfxAuthType authType, string expected)
             {
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.AuthType = authType;
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
@@ -193,12 +201,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.UserName = "gep13";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --username \"gep13\"", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --username \"gep13\"", result.Args);
             }
 
             [Fact]
@@ -207,12 +216,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.Password = "password";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --password \"password\"", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --password \"password\"", result.Args);
             }
 
             [Fact]
@@ -221,12 +231,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.Token = "abcdef";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --token \"abcdef\"", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --token \"abcdef\"", result.Args);
             }
 
             [Fact]
@@ -235,12 +246,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.ServiceUrl = "http://test.com";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --service-url \"http://test.com\"", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --service-url \"http://test.com\"", result.Args);
             }
 
             [Fact]
@@ -249,12 +261,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.Proxy = "proxy";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --proxy \"proxy\"", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --proxy \"proxy\"", result.Args);
             }
 
             [Fact]
@@ -263,12 +276,13 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.Save = true;
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --save", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --save", result.Args);
             }
 
             [Fact]
@@ -277,23 +291,25 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.NoPrompt = true;
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension install --auth-type pat --no-prompt", result.Args);
+                Assert.Equal("extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --no-prompt", result.Args);
             }
 
             [Theory]
-            [InlineData(TfxOutputType.Friendly, "extension install --auth-type pat --output friendly")]
-            [InlineData(TfxOutputType.Json, "extension install --auth-type pat --output json")]
-            [InlineData(TfxOutputType.Clipboard, "extension install --auth-type pat --output clipboard")]
+            [InlineData(TfxOutputType.Friendly, "extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --output friendly")]
+            [InlineData(TfxOutputType.Json, "extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --output json")]
+            [InlineData(TfxOutputType.Clipboard, "extension install --vsix \"c:/temp/test.vsix\" --accounts \"account1\" --auth-type pat --output clipboard")]
             public void Should_Add_OutputType_To_Arguments_If_Set(TfxOutputType outputType, string expected)
             {
                 // Given
                 var fixture = new TfxExtensionInstallRunnerFixture();
                 fixture.Settings.Output = outputType;
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();

@@ -8,6 +8,16 @@ namespace Cake.Tfx
     public abstract class TfxSettings : ToolSettings
     {
         /// <summary>
+        /// Gets or sets a value to use as the publisher ID instead of what is specified in the manifest.
+        /// </summary>
+        public string Publisher { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value to use as the extension ID instead of what is specified in the manifest.
+        /// </summary>
+        public string ExtensionId { get; set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether to save arguments for the next time a command in this command group is run.
         /// </summary>
         public bool Save { get; set; }
