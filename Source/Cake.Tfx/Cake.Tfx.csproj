@@ -63,6 +63,9 @@
     <Compile Include="Extension\Install\TfxExtensionInstallArgumentBuilder.cs" />
     <Compile Include="Extension\Install\TfxExtensionInstallRunner.cs" />
     <Compile Include="Extension\Install\TfxExtensionInstallSettings.cs" />
+    <Compile Include="Extension\Share\TfxExtensionShareArgumentBuilder.cs" />
+    <Compile Include="Extension\Share\TfxExtensionShareRunner.cs" />
+    <Compile Include="Extension\Share\TfxExtensionShareSettings.cs" />
     <Compile Include="ITfxArgumentBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TfxAliases.cs" />
