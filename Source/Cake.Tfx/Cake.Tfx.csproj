@@ -60,9 +60,13 @@
     <Compile Include="Extension\Create\TfxExtensionCreateArgumentBuilder.cs" />
     <Compile Include="Extension\Create\TfxExtensionCreateRunner.cs" />
     <Compile Include="Extension\Create\TfxExtensionCreateSettings.cs" />
+    <Compile Include="Extension\ICreatePublishSettings.cs" />
     <Compile Include="Extension\Install\TfxExtensionInstallArgumentBuilder.cs" />
     <Compile Include="Extension\Install\TfxExtensionInstallRunner.cs" />
     <Compile Include="Extension\Install\TfxExtensionInstallSettings.cs" />
+    <Compile Include="Extension\Publish\TfxExtensionPublishArgumentBuilder.cs" />
+    <Compile Include="Extension\Publish\TfxExtensionPublishRunner.cs" />
+    <Compile Include="Extension\Publish\TfxExtensionPublishSettings.cs" />
     <Compile Include="Extension\Share\TfxExtensionShareArgumentBuilder.cs" />
     <Compile Include="Extension\Share\TfxExtensionShareRunner.cs" />
     <Compile Include="Extension\Share\TfxExtensionShareSettings.cs" />

@@ -1,4 +1,5 @@
-﻿using Cake.Core;
+﻿using System.Collections.Generic;
+using Cake.Core;
 using Cake.Core.IO;
 
 namespace Cake.Tfx.Extension.Install
@@ -10,15 +11,21 @@ namespace Cake.Tfx.Extension.Install
     {
         private readonly ICakeEnvironment _environment;
         private readonly TfxExtensionInstallSettings _settings;
+        private readonly FilePath _vsixFilePath;
+        private readonly ICollection<string> _accounts;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxExtensionInstallArgumentBuilder"/> class.
         /// </summary>
         /// <param name="environment">The environment.</param>
+        /// <param name="vsixFilePath">The FilePath to the VSIX.</param>
+        /// <param name="accounts">The accounts to install the extension to.</param>
         /// <param name="settings">The settings.</param>
-        public TfxExtensionInstallArgumentBuilder(ICakeEnvironment environment, TfxExtensionInstallSettings settings)
+        public TfxExtensionInstallArgumentBuilder(ICakeEnvironment environment, FilePath vsixFilePath, ICollection<string> accounts, TfxExtensionInstallSettings settings)
         {
             _environment = environment;
+            _vsixFilePath = vsixFilePath;
+            _accounts = accounts;
             _settings = settings;
         }
 
@@ -32,20 +39,14 @@ namespace Cake.Tfx.Extension.Install
 
             builder.Append("extension install");
 
-            if (_settings.Vsix != null)
-            {
-                builder.Append("--vsix");
-                builder.AppendQuoted(_settings.Vsix.MakeAbsolute(_environment).FullPath);
-            }
+            builder.Append("--vsix");
+            builder.AppendQuoted(_vsixFilePath.MakeAbsolute(_environment).FullPath);
 
-            if (_settings.Accounts != null)
-            {
-                builder.Append("--accounts");
+            builder.Append("--accounts");
 
-                foreach (var account in _settings.Accounts)
-                {
-                    builder.AppendQuoted(account);
-                }
+            foreach (var account in _accounts)
+            {
+                builder.AppendQuoted(account);
             }
 
             TfxArgumentBuilder.GetServerArguments(builder, _settings);

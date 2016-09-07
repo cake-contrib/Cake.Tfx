@@ -74,10 +74,12 @@
   <ItemGroup>
     <Compile Include="Fixtures\TfxExtensionCreateRunnerFixture.cs" />
     <Compile Include="Fixtures\TfxExtensionInstallRunnerFixture.cs" />
+    <Compile Include="Fixtures\TfxExtensionPublishRunnerFixture.cs" />
     <Compile Include="Fixtures\TfxExtensionShareRunnerFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TfxExtensionCreateRunnerTests.cs" />
     <Compile Include="TfxExtensionInstallRunnerTests.cs" />
+    <Compile Include="TfxExtensionPublishRunnerTests.cs" />
     <Compile Include="TfxExtensionShareRunnerTests.cs" />
     <Compile Include="TfxFixture.cs" />
   </ItemGroup>

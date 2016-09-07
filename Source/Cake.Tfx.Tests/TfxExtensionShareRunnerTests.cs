@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cake.Core;
 using Cake.Testing;
 using Cake.Tfx.Tests.Fixtures;
@@ -17,6 +16,7 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
                 fixture.Settings = null;
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -27,11 +27,41 @@ namespace Cake.Tfx.Tests
             }
 
             [Fact]
+            public void Should_Throw_If_VsixFilePath_Is_Null()
+            {
+                // Given
+                var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.VsixFilePath = null;
+
+                // When
+                var result = Record.Exception(() => fixture.Run());
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("vsixFilePath", ((ArgumentNullException)result).ParamName);
+            }
+
+            [Fact]
+            public void Should_Throw_If_ShareWith_Is_Null()
+            {
+                // Given
+                var fixture = new TfxExtensionShareRunnerFixture();
+
+                // When
+                var result = Record.Exception(() => fixture.Run());
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("shareWith", ((ArgumentNullException)result).ParamName);
+            }
+
+            [Fact]
             public void Should_Throw_If_Tfx_Executable_Was_Not_Found()
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
                 fixture.GivenDefaultToolDoNotExist();
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = Record.Exception(() => fixture.Run());
@@ -49,6 +79,7 @@ namespace Cake.Tfx.Tests
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
                 fixture.Settings.ToolPath = toolPath;
+                fixture.GivenSingleAccount();
                 fixture.GivenSettingsToolPathExist();
 
                 // When
@@ -63,6 +94,7 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.GivenProcessCannotStart();
 
                 // When
@@ -78,6 +110,7 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.GivenProcessExitsWithCode(1);
 
                 // When
@@ -93,6 +126,7 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
@@ -106,13 +140,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.Publisher = "gep13";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --publisher \"gep13\" --auth-type pat", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --publisher \"gep13\"", result.Args);
             }
 
             [Fact]
@@ -120,13 +155,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.ExtensionId = "cake-vso";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --extension-id \"cake-vso\" --auth-type pat", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --extension-id \"cake-vso\"", result.Args);
             }
 
             [Fact]
@@ -134,13 +170,13 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
-                fixture.Settings.Vsix = "./test.vsix";
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --vsix \"/Working/test.vsix\" --auth-type pat", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat", result.Args);
             }
 
             [Fact]
@@ -148,13 +184,13 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
-                fixture.Settings.ShareWith = new List<string> { "account1" };
+                fixture.GivenSingleAccount();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --share-with \"account1\" --auth-type pat", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat", result.Args);
             }
 
             [Fact]
@@ -162,22 +198,23 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
-                fixture.Settings.ShareWith = new List<string> { "account1", "account2" };
+                fixture.GivenMultipleAccounts();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --share-with \"account1\" \"account2\" --auth-type pat", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" \"account2\" --auth-type pat", result.Args);
             }
 
             [Theory]
-            [InlineData(TfxAuthType.Pat, "extension share --auth-type pat")]
-            [InlineData(TfxAuthType.Basic, "extension share --auth-type basic")]
+            [InlineData(TfxAuthType.Pat, "extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat")]
+            [InlineData(TfxAuthType.Basic, "extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type basic")]
             public void Should_Add_AuthType_To_Arguments_If_Set(TfxAuthType authType, string expected)
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.AuthType = authType;
 
                 // When
@@ -192,13 +229,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.UserName = "gep13";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --username \"gep13\"", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --username \"gep13\"", result.Args);
             }
 
             [Fact]
@@ -206,13 +244,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.Password = "password";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --password \"password\"", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --password \"password\"", result.Args);
             }
 
             [Fact]
@@ -220,13 +259,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.Token = "abcdef";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --token \"abcdef\"", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --token \"abcdef\"", result.Args);
             }
 
             [Fact]
@@ -234,13 +274,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.ServiceUrl = "http://test.com";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --service-url \"http://test.com\"", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --service-url \"http://test.com\"", result.Args);
             }
 
             [Fact]
@@ -248,13 +289,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.Proxy = "proxy";
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --proxy \"proxy\"", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --proxy \"proxy\"", result.Args);
             }
 
             [Fact]
@@ -262,13 +304,14 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.Save = true;
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --save", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --save", result.Args);
             }
 
             [Fact]
@@ -276,23 +319,25 @@ namespace Cake.Tfx.Tests
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.NoPrompt = true;
 
                 // When
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal("extension share --auth-type pat --no-prompt", result.Args);
+                Assert.Equal("extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --no-prompt", result.Args);
             }
 
             [Theory]
-            [InlineData(TfxOutputType.Friendly, "extension share --auth-type pat --output friendly")]
-            [InlineData(TfxOutputType.Json, "extension share --auth-type pat --output json")]
-            [InlineData(TfxOutputType.Clipboard, "extension share --auth-type pat --output clipboard")]
+            [InlineData(TfxOutputType.Friendly, "extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --output friendly")]
+            [InlineData(TfxOutputType.Json, "extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --output json")]
+            [InlineData(TfxOutputType.Clipboard, "extension share --vsix \"c:/temp/test.vsix\" --share-with \"account1\" --auth-type pat --output clipboard")]
             public void Should_Add_OutputType_To_Arguments_If_Set(TfxOutputType outputType, string expected)
             {
                 // Given
                 var fixture = new TfxExtensionShareRunnerFixture();
+                fixture.GivenSingleAccount();
                 fixture.Settings.Output = outputType;
 
                 // When

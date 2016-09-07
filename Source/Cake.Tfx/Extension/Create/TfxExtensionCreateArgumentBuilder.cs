@@ -32,63 +32,7 @@ namespace Cake.Tfx.Extension.Create
 
             builder.Append("extension create");
 
-            if (_settings.Root != null)
-            {
-                builder.Append("--root");
-                builder.AppendQuoted(_settings.Root.MakeAbsolute(_environment).FullPath);
-            }
-
-            if (_settings.ManifestGlobs != null && _settings.ManifestGlobs.Count > 0)
-            {
-                builder.Append("--manifest-globs");
-
-                foreach (var manifestGlob in _settings.ManifestGlobs)
-                {
-                    builder.AppendQuoted(manifestGlob);
-                }
-            }
-
-            if (!string.IsNullOrWhiteSpace(_settings.Override))
-            {
-                builder.Append("--override");
-                builder.AppendQuoted(_settings.Override);
-            }
-
-            if (_settings.OverridesFile != null)
-            {
-                builder.Append("--overrides-file");
-                builder.AppendQuoted(_settings.OverridesFile.MakeAbsolute(_environment).FullPath);
-            }
-
-            if (_settings.BypassValidation)
-            {
-                builder.Append("--bypass-validation");
-            }
-
-            if (!string.IsNullOrWhiteSpace(_settings.Publisher))
-            {
-                builder.Append("--publisher");
-                builder.AppendQuoted(_settings.Publisher);
-            }
-
-            if (!string.IsNullOrWhiteSpace(_settings.ExtensionId))
-            {
-                builder.Append("--extension-id");
-                builder.AppendQuoted(_settings.ExtensionId);
-            }
-
-            if (_settings.OutputPath != null)
-            {
-                builder.Append("--output-path");
-                builder.AppendQuoted(_settings.OutputPath.MakeAbsolute(_environment).FullPath);
-            }
-
-            if (!string.IsNullOrWhiteSpace(_settings.LocRoot))
-            {
-                builder.Append("--loc-root");
-                builder.AppendQuoted(_settings.LocRoot);
-            }
-
+            TfxArgumentBuilder.GetCreatePublishArgument(builder, _environment, _settings);
             TfxArgumentBuilder.GetCommonArguments(builder, _settings);
 
             return builder;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -32,15 +33,27 @@ namespace Cake.Tfx.Extension.Install
         /// <summary>
         /// Installs an extension using the specified settings.
         /// </summary>
+        /// <param name="vsixFilePath">The path to the VSIX.</param>
+        /// <param name="accounts">The accounts to install the extension to.</param>
         /// <param name="settings">The settings.</param>
-        public void Install(TfxExtensionInstallSettings settings)
+        public void Install(FilePath vsixFilePath, ICollection<string> accounts, TfxExtensionInstallSettings settings)
         {
+            if (vsixFilePath == null)
+            {
+                throw new ArgumentNullException(nameof(vsixFilePath));
+            }
+
+            if (accounts == null || accounts.Count == 0)
+            {
+                throw new ArgumentNullException(nameof(accounts));
+            }
+
             if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
             }
 
-            RunTfx(settings, new TfxExtensionInstallArgumentBuilder(_environment, settings));
+            RunTfx(settings, new TfxExtensionInstallArgumentBuilder(_environment, vsixFilePath, accounts, settings));
         }
     }
 }
