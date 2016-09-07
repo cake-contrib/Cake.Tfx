@@ -9,17 +9,17 @@ namespace Cake.Tfx.Extension.Create
     internal sealed class TfxExtensionCreateArgumentBuilder : ITfxArgumentBuilder
     {
         private readonly ICakeEnvironment _environment;
-        private readonly TfxExtensionCreateSettings _settings;
+        private readonly TfxExtensionCreateSettings _createSettings;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxExtensionCreateArgumentBuilder"/> class.
         /// </summary>
         /// <param name="environment">The environment.</param>
-        /// <param name="settings">The settings.</param>
-        public TfxExtensionCreateArgumentBuilder(ICakeEnvironment environment, TfxExtensionCreateSettings settings)
+        /// <param name="createSettings">The createSettings.</param>
+        public TfxExtensionCreateArgumentBuilder(ICakeEnvironment environment, TfxExtensionCreateSettings createSettings)
         {
             _environment = environment;
-            _settings = settings;
+            _createSettings = createSettings;
         }
 
         /// <summary>
@@ -32,64 +32,64 @@ namespace Cake.Tfx.Extension.Create
 
             builder.Append("extension create");
 
-            if (_settings.Root != null)
+            if (_createSettings.Root != null)
             {
                 builder.Append("--root");
-                builder.AppendQuoted(_settings.Root.MakeAbsolute(_environment).FullPath);
+                builder.AppendQuoted(_createSettings.Root.MakeAbsolute(_environment).FullPath);
             }
 
-            if (_settings.ManifestGlobs != null && _settings.ManifestGlobs.Count > 0)
+            if (_createSettings.ManifestGlobs != null && _createSettings.ManifestGlobs.Count > 0)
             {
                 builder.Append("--manifest-globs");
 
-                foreach (var manifestGlob in _settings.ManifestGlobs)
+                foreach (var manifestGlob in _createSettings.ManifestGlobs)
                 {
                     builder.AppendQuoted(manifestGlob);
                 }
             }
 
-            if (!string.IsNullOrWhiteSpace(_settings.Override))
+            if (!string.IsNullOrWhiteSpace(_createSettings.Override))
             {
                 builder.Append("--override");
-                builder.AppendQuoted(_settings.Override);
+                builder.AppendQuoted(_createSettings.Override);
             }
 
-            if (_settings.OverridesFile != null)
+            if (_createSettings.OverridesFile != null)
             {
                 builder.Append("--overrides-file");
-                builder.AppendQuoted(_settings.OverridesFile.MakeAbsolute(_environment).FullPath);
+                builder.AppendQuoted(_createSettings.OverridesFile.MakeAbsolute(_environment).FullPath);
             }
 
-            if (_settings.BypassValidation)
+            if (_createSettings.BypassValidation)
             {
                 builder.Append("--bypass-validation");
             }
 
-            if (!string.IsNullOrWhiteSpace(_settings.Publisher))
+            if (!string.IsNullOrWhiteSpace(_createSettings.Publisher))
             {
                 builder.Append("--publisher");
-                builder.AppendQuoted(_settings.Publisher);
+                builder.AppendQuoted(_createSettings.Publisher);
             }
 
-            if (!string.IsNullOrWhiteSpace(_settings.ExtensionId))
+            if (!string.IsNullOrWhiteSpace(_createSettings.ExtensionId))
             {
                 builder.Append("--extension-id");
-                builder.AppendQuoted(_settings.ExtensionId);
+                builder.AppendQuoted(_createSettings.ExtensionId);
             }
 
-            if (_settings.OutputPath != null)
+            if (_createSettings.OutputPath != null)
             {
                 builder.Append("--output-path");
-                builder.AppendQuoted(_settings.OutputPath.MakeAbsolute(_environment).FullPath);
+                builder.AppendQuoted(_createSettings.OutputPath.MakeAbsolute(_environment).FullPath);
             }
 
-            if (!string.IsNullOrWhiteSpace(_settings.LocRoot))
+            if (!string.IsNullOrWhiteSpace(_createSettings.LocRoot))
             {
                 builder.Append("--loc-root");
-                builder.AppendQuoted(_settings.LocRoot);
+                builder.AppendQuoted(_createSettings.LocRoot);
             }
 
-            TfxArgumentBuilder.GetCommonArguments(builder, _settings);
+            TfxArgumentBuilder.GetCommonArguments(builder, _createSettings);
 
             return builder;
         }
