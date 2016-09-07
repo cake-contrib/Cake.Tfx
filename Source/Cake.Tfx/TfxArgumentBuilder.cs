@@ -10,7 +10,7 @@ namespace Cake.Tfx
     public static class TfxArgumentBuilder
     {
         /// <summary>
-        /// Adds the arguments to the specified argument builder.
+        /// Adds the common arguments to the specified argument builder.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="settings">The settings.</param>
@@ -33,6 +33,11 @@ namespace Cake.Tfx
             }
         }
 
+        /// <summary>
+        /// Adds the server arguments to the specified argument builder.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="settings">The settings.</param>
         public static void GetServerArguments(ProcessArgumentBuilder builder, TfxServerSettings settings)
         {
             builder.Append("--auth-type");
