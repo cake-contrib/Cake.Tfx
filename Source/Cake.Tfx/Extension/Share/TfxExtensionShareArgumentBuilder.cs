@@ -1,22 +1,22 @@
 ﻿using Cake.Core;
 using Cake.Core.IO;
 
-namespace Cake.Tfx.Extension.Install
+namespace Cake.Tfx.Extension.Share
 {
     /// <summary>
-    /// The Argument Builder for the Install Extension method of the Tfx CLI.
+    /// The Argument Builder for the Share Extension method of the Tfx CLI.
     /// </summary>
-    internal sealed class TfxExtensionInstallArgumentBuilder : ITfxArgumentBuilder
+    internal sealed class TfxExtensionShareArgumentBuilder : ITfxArgumentBuilder
     {
         private readonly ICakeEnvironment _environment;
-        private readonly TfxExtensionInstallSettings _settings;
+        private readonly TfxExtensionShareSettings _settings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TfxExtensionInstallArgumentBuilder"/> class.
+        /// Initializes a new instance of the <see cref="TfxExtensionShareArgumentBuilder"/> class.
         /// </summary>
         /// <param name="environment">The environment.</param>
         /// <param name="settings">The settings.</param>
-        public TfxExtensionInstallArgumentBuilder(ICakeEnvironment environment, TfxExtensionInstallSettings settings)
+        public TfxExtensionShareArgumentBuilder(ICakeEnvironment environment, TfxExtensionShareSettings settings)
         {
             _environment = environment;
             _settings = settings;
@@ -30,7 +30,7 @@ namespace Cake.Tfx.Extension.Install
         {
             var builder = new ProcessArgumentBuilder();
 
-            builder.Append("extension install");
+            builder.Append("extension share");
 
             if (_settings.Vsix != null)
             {
@@ -38,11 +38,11 @@ namespace Cake.Tfx.Extension.Install
                 builder.AppendQuoted(_settings.Vsix.MakeAbsolute(_environment).FullPath);
             }
 
-            if (_settings.Accounts != null)
+            if (_settings.ShareWith != null)
             {
-                builder.Append("--accounts");
+                builder.Append("--share-with");
 
-                foreach (var account in _settings.Accounts)
+                foreach (var account in _settings.ShareWith)
                 {
                     builder.AppendQuoted(account);
                 }

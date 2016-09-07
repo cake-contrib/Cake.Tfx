@@ -40,6 +40,18 @@ namespace Cake.Tfx
         /// <param name="settings">The settings.</param>
         public static void GetServerArguments(ProcessArgumentBuilder builder, TfxServerSettings settings)
         {
+            if (!string.IsNullOrWhiteSpace(settings.Publisher))
+            {
+                builder.Append("--publisher");
+                builder.AppendQuoted(settings.Publisher);
+            }
+
+            if (!string.IsNullOrWhiteSpace(settings.ExtensionId))
+            {
+                builder.Append("--extension-id");
+                builder.AppendQuoted(settings.ExtensionId);
+            }
+
             builder.Append("--auth-type");
             builder.Append(GetAuthName(settings.AuthType));
 

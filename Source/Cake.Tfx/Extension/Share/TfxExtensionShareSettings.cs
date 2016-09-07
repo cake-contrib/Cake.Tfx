@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Cake.Core.IO;
 
-namespace Cake.Tfx.Extension.Install
+namespace Cake.Tfx.Extension.Share
 {
     /// <summary>
-    /// Contains settings used by <see cref="TfxExtensionInstallRunner"/>.
+    /// Contains settings used by <see cref="TfxExtensionShareRunner"/>.
     /// </summary>
-    public sealed class TfxExtensionInstallSettings : TfxServerSettings
+    public sealed class TfxExtensionShareSettings : TfxServerSettings
     {
         /// <summary>
         /// Gets or sets the Path to an existing VSIX (to publish or query for).
@@ -14,8 +14,8 @@ namespace Cake.Tfx.Extension.Install
         public FilePath Vsix { get; set; }
 
         /// <summary>
-        /// Gets or sets the List of accounts where to install the extension.
+        /// Gets or sets the List of accounts where to share the extension.
         /// </summary>
-        public ICollection<string> Accounts { get; set; }
+        public ICollection<string> ShareWith { get; set; }
     }
 }
