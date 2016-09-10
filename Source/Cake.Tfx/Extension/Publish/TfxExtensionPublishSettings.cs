@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Cake.Core.IO;
 
-namespace Cake.Tfx.Extension.Create
+namespace Cake.Tfx.Extension.Publish
 {
     /// <summary>
-    /// Contains settings used by <see cref="TfxExtensionCreateRunner"/>.
+    /// Contains settings used by <see cref="TfxExtensionPublishRunner"/>.
     /// </summary>
-    public sealed class TfxExtensionCreateSettings : TfxSettings, ICreatePublishSettings
+    public sealed class TfxExtensionPublishSettings : TfxServerSettings, ICreatePublishSettings
     {
         /// <summary>
         /// Gets or sets the Root directory to be used when creating extension.

@@ -4,11 +4,11 @@
     <id>Cake.Tfx</id>
     <version>0.0.0</version>
     <authors>gep13</authors>
-    <owners>gep13</owners>
+    <owners>gep13, cake-contrib</owners>
     <description>Cake Tfx AddIn.</description>
     <summary>Cake AddIn that extends Cake with ability to execute the tfx command line utility.</summary>
-    <licenseUrl>https://github.com/gep13/Cake.Tfx/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/gep13/Cake.Tfx/</projectUrl>
+    <licenseUrl>https://github.com/cake-contrib/Cake.Tfx/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/cake-contrib/Cake.Tfx/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright (c) gep13</copyright>
     <tags>Cake, Script, Build, Tfx</tags>
