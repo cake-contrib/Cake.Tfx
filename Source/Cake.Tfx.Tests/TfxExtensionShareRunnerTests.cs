@@ -23,7 +23,7 @@ namespace Cake.Tfx.Tests
 
                 // Then
                 Assert.IsType<ArgumentNullException>(result);
-                Assert.Equal("settings", ((ArgumentNullException)result).ParamName);
+                Assert.Equal("shareSettings", ((ArgumentNullException)result).ParamName);
             }
 
             [Fact]
