@@ -24,7 +24,7 @@ namespace Cake.Tfx.Tests
 
                 // Then
                 Assert.IsType<ArgumentNullException>(result);
-                Assert.Equal("settings", ((ArgumentNullException)result).ParamName);
+                Assert.Equal("publishSettings", ((ArgumentNullException)result).ParamName);
             }
 
             [Fact]
