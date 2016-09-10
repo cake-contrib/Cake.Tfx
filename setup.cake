@@ -44,7 +44,7 @@ var appVeyorAccountName       = "cakecontrib";
 var appVeyorProjectSlug       = "cake-tfx";
 
 // NOTE: Only populate this, if required, but leave as is otherwise.
-var dupFinderExcludePattern   = new string[] { rootDirectoryPath + "/Source/Cake.Tfx.Tests/*.cs" };
+var dupFinderExcludePattern   = new string[] { rootDirectoryPath + "/Source/Cake.Tfx.Tests/*.cs", rootDirectoryPath + "/Source/Cake.Tfx/Extension/Create/TfxExtensionCreateSettings.cs" };
 
 ///////////////////////////////////////////////////////////////////////////////
 // CAKE FILES TO LOAD IN

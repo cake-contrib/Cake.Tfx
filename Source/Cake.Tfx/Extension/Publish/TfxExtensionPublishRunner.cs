@@ -31,35 +31,35 @@ namespace Cake.Tfx.Extension.Publish
         }
 
         /// <summary>
-        /// Installs an extension using the specified settings.
+        /// Installs an extension using the specified publishSettings.
         /// </summary>
         /// <param name="vsixFilePath">The path to the VSIX.</param>
-        /// <param name="shareWith">The accounts to publish the extension to.</param>
-        /// <param name="settings">The settings.</param>
-        public void Publish(FilePath vsixFilePath, ICollection<string> shareWith, TfxExtensionPublishSettings settings)
+        /// <param name="publishShareWith">The accounts to publish the extension to.</param>
+        /// <param name="publishSettings">The publishSettings.</param>
+        public void Publish(FilePath vsixFilePath, ICollection<string> publishShareWith, TfxExtensionPublishSettings publishSettings)
         {
             if (vsixFilePath == null)
             {
                 throw new ArgumentNullException(nameof(vsixFilePath));
             }
 
-            if (shareWith == null || shareWith.Count == 0)
+            if (publishShareWith == null || publishShareWith.Count == 0)
             {
-                throw new ArgumentNullException(nameof(shareWith));
+                throw new ArgumentNullException(nameof(publishShareWith));
             }
 
-            if (settings == null)
+            if (publishSettings == null)
             {
-                throw new ArgumentNullException(nameof(settings));
+                throw new ArgumentNullException(nameof(publishSettings));
             }
 
-            RunTfx(settings, new TfxExtensionPublishArgumentBuilder(_environment, vsixFilePath, shareWith, settings));
+            RunTfx(publishSettings, new TfxExtensionPublishArgumentBuilder(_environment, vsixFilePath, publishShareWith, publishSettings));
         }
 
         /// <summary>
-        /// Installs an extension using the specified settings.
+        /// Installs an extension using the specified publishSettings.
         /// </summary>
-        /// <param name="settings">The settings.</param>
+        /// <param name="settings">The publishSettings.</param>
         public void Publish(TfxExtensionPublishSettings settings)
         {
             if (settings == null)

@@ -31,12 +31,12 @@ namespace Cake.Tfx.Extension.Share
         }
 
         /// <summary>
-        /// Installs an extension using the specified settings.
+        /// Installs an extension using the specified shareSettings.
         /// </summary>
         /// <param name="vsixFilePath">The path to the VSIX.</param>
         /// <param name="shareWith">The accounts to share the extension to.</param>
-        /// <param name="settings">The settings.</param>
-        public void Share(FilePath vsixFilePath, ICollection<string> shareWith, TfxExtensionShareSettings settings)
+        /// <param name="shareSettings">The shareSettings.</param>
+        public void Share(FilePath vsixFilePath, ICollection<string> shareWith, TfxExtensionShareSettings shareSettings)
         {
             if (vsixFilePath == null)
             {
@@ -48,12 +48,12 @@ namespace Cake.Tfx.Extension.Share
                 throw new ArgumentNullException(nameof(shareWith));
             }
 
-            if (settings == null)
+            if (shareSettings == null)
             {
-                throw new ArgumentNullException(nameof(settings));
+                throw new ArgumentNullException(nameof(shareSettings));
             }
 
-            RunTfx(settings, new TfxExtensionShareArgumentBuilder(_environment, vsixFilePath, shareWith, settings));
+            RunTfx(shareSettings, new TfxExtensionShareArgumentBuilder(_environment, vsixFilePath, shareWith, shareSettings));
         }
     }
 }
