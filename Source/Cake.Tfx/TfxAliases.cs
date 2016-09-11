@@ -20,6 +20,10 @@ namespace Cake.Tfx
     /// </para>
     /// </summary>
     [CakeAliasCategory("Tfx")]
+    [CakeNamespaceImport("Cake.Tfx.Extension.Publish")]
+    [CakeNamespaceImport("Cake.Tfx.Extension.Install")]
+    [CakeNamespaceImport("Cake.Tfx.Extension.Create")]
+    [CakeNamespaceImport("Cake.Tfx.Extension.Share")]
     public static class TfxAliases
     {
         /// <summary>
