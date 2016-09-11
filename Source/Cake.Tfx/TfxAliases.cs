@@ -47,7 +47,7 @@ namespace Cake.Tfx
         }
 
         /// <summary>
-        /// Creates an extension using the Tfx CLI using the specified settings.
+        /// Installs an extension using the Tfx CLI using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="vsixFilePath">The path to the vsix.</param>
@@ -70,7 +70,7 @@ namespace Cake.Tfx
         }
 
         /// <summary>
-        /// Creates an extension using the Tfx CLI using the specified settings.
+        /// Publishes an extension using the Tfx CLI using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
@@ -78,7 +78,7 @@ namespace Cake.Tfx
         /// <code>
         /// TfxExtensionPublish(new TfxExtensionPublishSettings()
         /// {
-        ///     ManifestGlobs = new List&lt;string&gt;(){ ".\extension-manifest.json" }
+        ///     ManifestGlobs = new List&lt;string&gt;(){ ".\extension-manifest.json" },
         ///     AuthType = TfxAuthType.Pat,
         ///     Token = "abcdef"
         /// });
@@ -92,7 +92,7 @@ namespace Cake.Tfx
         }
 
         /// <summary>
-        /// Creates an extension using the Tfx CLI using the specified settings.
+        /// Publishes an extension using the Tfx CLI using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="vsixFilePath">The path to the vsix.</param>
@@ -100,7 +100,7 @@ namespace Cake.Tfx
         /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
-        /// TfxExtensionPublish("c:/temp/test.vsix", new List&lt;string&gt;{ "account1 }, new TfxExtensionPublishSettings()
+        /// TfxExtensionPublish("c:/temp/test.vsix", new List&lt;string&gt;{ "account1" }, new TfxExtensionPublishSettings()
         /// {
         ///     AuthType = TfxAuthType.Pat,
         ///     Token = "abcdef"
@@ -115,7 +115,7 @@ namespace Cake.Tfx
         }
 
         /// <summary>
-        /// Creates an extension using the Tfx CLI using the specified settings.
+        /// Shares an extension using the Tfx CLI using the specified settings.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="vsixFilePath">The path to the vsix.</param>
@@ -123,7 +123,7 @@ namespace Cake.Tfx
         /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
-        /// TfxExtensionShare("c:/temp/test.vsix", new List&lt;string&gt;{ "account1 }, new TfxExtensionShareSettings()
+        /// TfxExtensionShare("c:/temp/test.vsix", new List&lt;string&gt;{ "account1" }, new TfxExtensionShareSettings()
         /// {
         ///     AuthType = TfxAuthType.Pat,
         ///     Token = "abcdef"
