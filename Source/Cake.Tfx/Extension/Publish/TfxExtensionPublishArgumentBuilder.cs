@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.IO;
 
 namespace Cake.Tfx.Extension.Publish
@@ -12,20 +11,17 @@ namespace Cake.Tfx.Extension.Publish
         private readonly ICakeEnvironment _environment;
         private readonly TfxExtensionPublishSettings _settings;
         private readonly FilePath _vsixFilePath;
-        private readonly ICollection<string> _shareWith;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TfxExtensionPublishArgumentBuilder"/> class.
         /// </summary>
         /// <param name="environment">The environment.</param>
         /// <param name="vsixFilePath">The path to the VSIX.</param>
-        /// <param name="shareWith">The accounts to publish the extension to.</param>
         /// <param name="settings">The settings.</param>
-        public TfxExtensionPublishArgumentBuilder(ICakeEnvironment environment, FilePath vsixFilePath, ICollection<string> shareWith, TfxExtensionPublishSettings settings)
+        public TfxExtensionPublishArgumentBuilder(ICakeEnvironment environment, FilePath vsixFilePath, TfxExtensionPublishSettings settings)
         {
             _environment = environment;
             _vsixFilePath = vsixFilePath;
-            _shareWith = shareWith;
             _settings = settings;
         }
 
@@ -56,11 +52,11 @@ namespace Cake.Tfx.Extension.Publish
                 builder.AppendQuoted(_vsixFilePath.MakeAbsolute(_environment).FullPath);
             }
 
-            if (_shareWith != null && _shareWith.Count != 0)
+            if (_settings.ShareWith != null && _settings.ShareWith.Count != 0)
             {
                 builder.Append("--share-with");
 
-                foreach (var account in _shareWith)
+                foreach (var account in _settings.ShareWith)
                 {
                     builder.AppendQuoted(account);
                 }

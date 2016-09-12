@@ -96,11 +96,10 @@ namespace Cake.Tfx
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="vsixFilePath">The path to the vsix.</param>
-        /// <param name="shareWith">The accounts to publish the extension to.</param>
         /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
-        /// TfxExtensionPublish("c:/temp/test.vsix", new List&lt;string&gt;{ "account1" }, new TfxExtensionPublishSettings()
+        /// TfxExtensionPublish("c:/temp/test.vsix", new TfxExtensionPublishSettings()
         /// {
         ///     AuthType = TfxAuthType.Pat,
         ///     Token = "abcdef"
@@ -108,10 +107,10 @@ namespace Cake.Tfx
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static void TfxExtensionPublish(this ICakeContext context, FilePath vsixFilePath, ICollection<string> shareWith, TfxExtensionPublishSettings settings)
+        public static void TfxExtensionPublish(this ICakeContext context, FilePath vsixFilePath, TfxExtensionPublishSettings settings)
         {
             var runner = new TfxExtensionPublishRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
-            runner.Publish(vsixFilePath, shareWith, settings);
+            runner.Publish(vsixFilePath, settings);
         }
 
         /// <summary>

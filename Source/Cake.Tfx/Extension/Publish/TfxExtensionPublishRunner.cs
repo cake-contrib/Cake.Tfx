@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -34,18 +33,12 @@ namespace Cake.Tfx.Extension.Publish
         /// Installs an extension using the specified publishSettings.
         /// </summary>
         /// <param name="vsixFilePath">The path to the VSIX.</param>
-        /// <param name="publishShareWith">The accounts to publish the extension to.</param>
         /// <param name="publishSettings">The publishSettings.</param>
-        public void Publish(FilePath vsixFilePath, ICollection<string> publishShareWith, TfxExtensionPublishSettings publishSettings)
+        public void Publish(FilePath vsixFilePath, TfxExtensionPublishSettings publishSettings)
         {
             if (vsixFilePath == null)
             {
                 throw new ArgumentNullException(nameof(vsixFilePath));
-            }
-
-            if (publishShareWith == null || publishShareWith.Count == 0)
-            {
-                throw new ArgumentNullException(nameof(publishShareWith));
             }
 
             if (publishSettings == null)
@@ -53,7 +46,7 @@ namespace Cake.Tfx.Extension.Publish
                 throw new ArgumentNullException(nameof(publishSettings));
             }
 
-            RunTfx(publishSettings, new TfxExtensionPublishArgumentBuilder(_environment, vsixFilePath, publishShareWith, publishSettings));
+            RunTfx(publishSettings, new TfxExtensionPublishArgumentBuilder(_environment, vsixFilePath, publishSettings));
         }
 
         /// <summary>
