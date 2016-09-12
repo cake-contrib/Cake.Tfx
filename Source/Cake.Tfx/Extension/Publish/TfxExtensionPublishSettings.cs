@@ -9,6 +9,11 @@ namespace Cake.Tfx.Extension.Publish
     public sealed class TfxExtensionPublishSettings : TfxServerSettings, ICreatePublishSettings
     {
         /// <summary>
+        /// Gets or sets List of VSTS Accounts with which to share the extension.
+        /// </summary>
+        public ICollection<string> ShareWith { get; set; }
+
+        /// <summary>
         /// Gets or sets the Root directory to be used when creating extension.
         /// </summary>
         public DirectoryPath Root { get; set; }
