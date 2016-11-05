@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace Cake.Tfx
 {
     /// <summary>
-    /// This namespace contains Gitter aliases.
+    /// This namespace contains Tfx aliases.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
@@ -17,7 +17,7 @@ namespace Cake.Tfx
 namespace Cake.Tfx.Extension
 {
     /// <summary>
-    /// This namespace contains Gitter aliases.
+    /// This namespace contains members related to Tfx Extension.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
@@ -29,7 +29,7 @@ namespace Cake.Tfx.Extension
 namespace Cake.Tfx.Extension.Create
 {
     /// <summary>
-    /// This namespace contains Gitter aliases.
+    /// This namespace contains members related to the Tfx Extension Create method.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
@@ -41,7 +41,7 @@ namespace Cake.Tfx.Extension.Create
 namespace Cake.Tfx.Extension.Install
 {
     /// <summary>
-    /// This namespace contains Gitter aliases.
+    /// This namespace contains members related to the Tfx Extension Install method.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
@@ -53,7 +53,7 @@ namespace Cake.Tfx.Extension.Install
 namespace Cake.Tfx.Extension.Publish
 {
     /// <summary>
-    /// This namespace contains Gitter aliases.
+    /// This namespace contains members related to the Tfx Extension Publish method.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
@@ -65,7 +65,7 @@ namespace Cake.Tfx.Extension.Publish
 namespace Cake.Tfx.Extension.Share
 {
     /// <summary>
-    /// This namespace contains Gitter aliases.
+    /// This namespace contains members related to the Tfx Extension Share method.
     /// </summary>
     [CompilerGenerated]
     internal class NamespaceDoc
