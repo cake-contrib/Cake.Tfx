@@ -10,12 +10,12 @@
     <licenseUrl>https://github.com/cake-contrib/Cake.Tfx/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/cake-contrib/Cake.Tfx/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright (c) gep13</copyright>
+    <copyright>Copyright (c) Cake Contributions 2016 - Present</copyright>
     <tags>Cake, Script, Build, Tfx</tags>
   </metadata>
   <files>
-    <file src="Cake.Tfx.dll" />
-    <file src="Cake.Tfx.pdb" />
-    <file src="Cake.Tfx.xml" />
+    <file src="Cake.Tfx.dll" target="lib\net45" />
+    <file src="Cake.Tfx.pdb" target="lib\net45" />
+    <file src="Cake.Tfx.xml" target="lib\net45" />
   </files>
 </package>
