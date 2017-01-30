@@ -36,6 +36,7 @@ var sendMessageToTwitter = true;
 var rootDirectoryPath         = MakeAbsolute(Context.Environment.WorkingDirectory);
 var solutionFilePath          = "./Source/Cake.Tfx.sln";
 var solutionDirectoryPath     = "./Source/Cake.Tfx";
+var sourceDirectoryPath       = "./Source";
 var title                     = "Cake.Tfx";
 var resharperSettingsFileName = "Cake.Tfx.sln.DotSettings";
 var repositoryOwner           = "cake-contrib";
@@ -45,6 +46,10 @@ var appVeyorProjectSlug       = "cake-tfx";
 
 // NOTE: Only populate this, if required, but leave as is otherwise.
 var dupFinderExcludePattern   = new string[] { rootDirectoryPath + "/Source/Cake.Tfx.Tests/*.cs", rootDirectoryPath + "/Source/Cake.Tfx/Extension/Create/TfxExtensionCreateSettings.cs" };
+
+var testCoverageFilter = "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ";
+var testCoverageExcludeByAttribute = "*.ExcludeFromCodeCoverage*";
+var testCoverageExcludeByFile = "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs";
 
 ///////////////////////////////////////////////////////////////////////////////
 // CAKE FILES TO LOAD IN
