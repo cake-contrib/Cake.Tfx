@@ -34,38 +34,6 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"TfxOutputType",
-        content:"TfxOutputType",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"TfxExtensionPublishSettings",
-        content:"TfxExtensionPublishSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"TfxExtensionCreateSettings",
-        content:"TfxExtensionCreateSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
-        title:"TfxAliases",
-        content:"TfxAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:4,
         title:"TfxExtensionCreateRunner",
         content:"TfxExtensionCreateRunner",
         description:'',
@@ -73,31 +41,7 @@ var searchModule = function() {
     });
 
     a({
-        id:5,
-        title:"ICreatePublishSettings",
-        content:"ICreatePublishSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:6,
-        title:"TfxAuthType",
-        content:"TfxAuthType",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:7,
-        title:"ITfxArgumentBuilder",
-        content:"ITfxArgumentBuilder",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:8,
+        id:1,
         title:"TfxExtensionInstallRunner",
         content:"TfxExtensionInstallRunner",
         description:'',
@@ -105,7 +49,15 @@ var searchModule = function() {
     });
 
     a({
-        id:9,
+        id:2,
+        title:"TfxExtensionPublishSettings",
+        content:"TfxExtensionPublishSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:3,
         title:"TfxExtensionShareRunner",
         content:"TfxExtensionShareRunner",
         description:'',
@@ -113,7 +65,23 @@ var searchModule = function() {
     });
 
     a({
-        id:10,
+        id:4,
+        title:"TfxOutputType",
+        content:"TfxOutputType",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:5,
+        title:"ITfxArgumentBuilder",
+        content:"ITfxArgumentBuilder",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:6,
         title:"TfxSettings",
         content:"TfxSettings",
         description:'',
@@ -121,7 +89,23 @@ var searchModule = function() {
     });
 
     a({
-        id:11,
+        id:7,
+        title:"ICreatePublishSettings",
+        content:"ICreatePublishSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:8,
+        title:"TfxAliases",
+        content:"TfxAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:9,
         title:"TfxTool",
         content:"TfxTool",
         description:'',
@@ -129,15 +113,7 @@ var searchModule = function() {
     });
 
     a({
-        id:12,
-        title:"TfxExtensionInstallSettings",
-        content:"TfxExtensionInstallSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:13,
+        id:10,
         title:"TfxServerSettings",
         content:"TfxServerSettings",
         description:'',
@@ -145,9 +121,33 @@ var searchModule = function() {
     });
 
     a({
-        id:14,
+        id:11,
+        title:"TfxExtensionInstallSettings",
+        content:"TfxExtensionInstallSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:12,
+        title:"TfxAuthType",
+        content:"TfxAuthType",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:13,
         title:"TfxExtensionShareSettings",
         content:"TfxExtensionShareSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:14,
+        title:"TfxArgumentBuilder",
+        content:"TfxArgumentBuilder",
         description:'',
         tags:''
     });
@@ -162,57 +162,15 @@ var searchModule = function() {
 
     a({
         id:16,
-        title:"TfxArgumentBuilder",
-        content:"TfxArgumentBuilder",
+        title:"TfxExtensionCreateSettings",
+        content:"TfxExtensionCreateSettings",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxOutputType',
-        title:"TfxOutputType",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings',
-        title:"TfxExtensionPublishSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings',
-        title:"TfxExtensionCreateSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxAliases',
-        title:"TfxAliases",
-        description:""
-    });
-
-    y({
         url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner',
         title:"TfxExtensionCreateRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension/ICreatePublishSettings',
-        title:"ICreatePublishSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxAuthType',
-        title:"TfxAuthType",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder',
-        title:"ITfxArgumentBuilder",
         description:""
     });
 
@@ -223,8 +181,26 @@ var searchModule = function() {
     });
 
     y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings',
+        title:"TfxExtensionPublishSettings",
+        description:""
+    });
+
+    y({
         url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner',
         title:"TfxExtensionShareRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxOutputType',
+        title:"TfxOutputType",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder',
+        title:"ITfxArgumentBuilder",
         description:""
     });
 
@@ -235,14 +211,20 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxTool_1',
-        title:"TfxTool<TSettings>",
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension/ICreatePublishSettings',
+        title:"ICreatePublishSettings",
         description:""
     });
 
     y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallSettings',
-        title:"TfxExtensionInstallSettings",
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxAliases',
+        title:"TfxAliases",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxTool_1',
+        title:"TfxTool<TSettings>",
         description:""
     });
 
@@ -253,8 +235,26 @@ var searchModule = function() {
     });
 
     y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallSettings',
+        title:"TfxExtensionInstallSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxAuthType',
+        title:"TfxAuthType",
+        description:""
+    });
+
+    y({
         url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareSettings',
         title:"TfxExtensionShareSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxArgumentBuilder',
+        title:"TfxArgumentBuilder",
         description:""
     });
 
@@ -265,8 +265,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx/TfxArgumentBuilder',
-        title:"TfxArgumentBuilder",
+        url:'/Cake.Tfx/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings',
+        title:"TfxExtensionCreateSettings",
         description:""
     });
 
