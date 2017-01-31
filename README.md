@@ -8,7 +8,6 @@ Cake.Tfx is an Addin for [Cake](http://cakebuild.net/) which allows the executio
 
 ||Stable|Pre-release|
 |:--:|:--:|:--:|
-|Docs|[![Documentation Status](https://readthedocs.org/projects/caketfx/badge/?version=stable)](http://caketfx.readthedocs.org/en/stable/)|[![Documentation Status](https://readthedocs.org/projects/caketfx/badge/?version=develop)](http://caketfx.readthedocs.org/en/develop/)|
 |GitHub Release|-|[![GitHub release](https://img.shields.io/github/release/cake-contrib/Cake.Tfx.svg)](https://github.com/cake-contrib/Cake.Tfx/releases/latest)|
 |NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.Tfx.svg)](https://www.nuget.org/packages/Cake.Tfx)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.Tfx.svg)](https://www.nuget.org/packages/Cake.Tfx)|
 
@@ -24,8 +23,7 @@ Cake.Tfx is an Addin for [Cake](http://cakebuild.net/) which allows the executio
 
 ## Quick Links
 
-- [Documentation](http://caketfx.readthedocs.org/en/develop/)
-- [Usage](http://caketfx.readthedocs.org/en/develop/usage/)
+- [Documentation](https://cake-contrib.github.io/Cake.Tfx/)
 
 ## Chat Room
 Come join in the conversation about Cake.Tfx in our Gitter Chat Room
