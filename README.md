@@ -6,7 +6,7 @@ Cake.Tfx is an Addin for [Cake](http://cakebuild.net/) which allows the executio
 
 ## Information
 
-||Stable|Pre-release|
+| |Stable|Pre-release|
 |:--:|:--:|:--:|
 |GitHub Release|-|[![GitHub release](https://img.shields.io/github/release/cake-contrib/Cake.Tfx.svg)](https://github.com/cake-contrib/Cake.Tfx/releases/latest)|
 |NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.Tfx.svg)](https://www.nuget.org/packages/Cake.Tfx)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.Tfx.svg)](https://www.nuget.org/packages/Cake.Tfx)|
