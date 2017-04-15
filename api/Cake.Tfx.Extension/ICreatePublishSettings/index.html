@@ -15,7 +15,7 @@
         <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="/Cake.Tfx/assets/css/override.css" rel="stylesheet">
-        <script src="/Cake.Tfx/assets/js/jQuery-2.2.3.min.js"></script>
+        <script src="/Cake.Tfx/assets/js/jquery-2.2.3.min.js"></script>
         <script src="/Cake.Tfx/assets/js/bootstrap.min.js"></script>        
         <script src="/Cake.Tfx/assets/js/app.min.js"></script>         
         <script src="/Cake.Tfx/assets/js/highlight.pack.js"></script>   
@@ -57,7 +57,6 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Tfx/docs">Documentation</a></li>
-        <li><a href="/Cake.Tfx/blog">Blog</a></li>
         <li class="active"><a href="/Cake.Tfx/api">API</a></li>
  
                         </ul>       
@@ -168,8 +167,8 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings">Tfx<wbr>Extension<wbr>Create<wbr>Settings</a></li>								
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings">Tfx<wbr>Extension<wbr>Publish<wbr>Settings</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings">Tfx<wbr>Extension<wbr>Create<wbr>Settings</a></li>								
 									</ul>
 								</dd>				
 						</dl>
@@ -179,10 +178,10 @@
 							graph TD
 	Type["ICreatePublishSettings"]
 class Type type-node
-	Type-.-&gt;Implementing0["TfxExtensionCreateSettings"]
-	click Implementing0 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings"
-	Type-.-&gt;Implementing1["TfxExtensionPublishSettings"]
-	click Implementing1 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings"
+	Type-.-&gt;Implementing0["TfxExtensionPublishSettings"]
+	click Implementing0 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings"
+	Type-.-&gt;Implementing1["TfxExtensionCreateSettings"]
+	click Implementing1 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings"
 
 						</div>
 					</div>
