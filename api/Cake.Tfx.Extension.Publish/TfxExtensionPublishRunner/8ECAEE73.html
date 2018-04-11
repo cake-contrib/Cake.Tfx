@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head>
+﻿<!DOCTYPE html><html><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="description">
@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
-        <title>Docs - API - TfxExtensionPublishRunner.Publish(FilePath, TfxExtensionPublishSettings) Method</title>
+        <title>Cake.Tfx - API - TfxExtensionPublishRunner.Publish(FilePath, TfxExtensionPublishSettings) Method</title>
         <link href="/Cake.Tfx/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -36,7 +36,7 @@
             <header class="main-header">   
                      
                 <a href="/Cake.Tfx/" class="logo">
-                            <span>Docs</span>
+                            <span>Cake.Tfx</span>
                 </a>   
                          
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -57,6 +57,7 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Tfx/docs">Documentation</a></li>
+        <li><a href="/Cake.Tfx/tasks">Tasks</a></li>
         <li><a href="/Cake.Tfx/blog">Blog</a></li>
         <li class="active"><a href="/Cake.Tfx/api">API</a></li>
  
@@ -80,10 +81,11 @@
 </div>
 
                 </section>
-                <section class="sidebar">                    
+                <section class="sidebar">    
+                                     
                     	
-	    <script src="/assets/js/lunr.min.js"></script>
-    <script src="/assets/js/searchIndex.js"></script>
+	    <script src="/Cake.Tfx/assets/js/lunr.min.js"></script>
+    <script src="/Cake.Tfx/assets/js/searchIndex.js"></script>
     <div class="sidebar-form">
         <div class="input-group">
             <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
@@ -108,7 +110,7 @@
             } else {					
                 for(var i = 0; i < results.length; ++i){
                     var res = results[i];
-                    listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a></li>";
+                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
                 }				
             }
             listHtml += "</ul>";				
@@ -120,6 +122,13 @@
                 runSearch($("#search").val());
             });
         });
+
+        function htmlEscape(html) {
+            return document.createElement('div')
+                .appendChild(document.createTextNode(html))
+                .parentNode
+                .innerHTML;
+        }
     </script>
 	
     <hr>
@@ -134,11 +143,15 @@
 			<li class="header">Constructors</li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner/F6E5C5DF">Tfx<wbr>Extension<wbr>Publish<wbr>Runner<wbr>(IFileSystem, <wbr>ICakeEnvironment, <wbr>IProcessRunner, <wbr>IToolLocator)<wbr></a></li>
 			<li class="header">Method Members</li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1/95A6DCD8">Get<wbr>Tool<wbr>Executable<wbr>Names<wbr>()<wbr></a></li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1/C4AA207F">GetToolName<wbr>()<wbr></a></li>
 				<li class="selected"><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner/8ECAEE73">Publish<wbr>(FilePath, <wbr>Tfx<wbr>Extension<wbr>Publish<wbr>Settings)<wbr></a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner/2748AE8D">Publish<wbr>(<wbr>Tfx<wbr>Extension<wbr>Publish<wbr>Settings)<wbr></a></li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1/2009C4D3">RunTfx<wbr>&lt;TBuilder&gt;<wbr><wbr>(TSettings, <wbr>TBuilder)<wbr></a></li>
 
 
                     </ul>
+                            
                 </section>                
             </aside>
             

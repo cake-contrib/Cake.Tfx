@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head>
+﻿<!DOCTYPE html><html><head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="description">
@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
-        <title>Docs - API - TfxTool&lt;TSettings&gt; Class</title>
+        <title>Cake.Tfx - API - TfxTool&lt;TSettings&gt; Class</title>
         <link href="/Cake.Tfx/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -36,7 +36,7 @@
             <header class="main-header">   
                      
                 <a href="/Cake.Tfx/" class="logo">
-                            <span>Docs</span>
+                            <span>Cake.Tfx</span>
                 </a>   
                          
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -57,6 +57,7 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Tfx/docs">Documentation</a></li>
+        <li><a href="/Cake.Tfx/tasks">Tasks</a></li>
         <li><a href="/Cake.Tfx/blog">Blog</a></li>
         <li class="active"><a href="/Cake.Tfx/api">API</a></li>
  
@@ -81,10 +82,11 @@
 </div>
 
                 </section>
-                <section class="sidebar">                    
+                <section class="sidebar">    
+                                     
                     	
-	    <script src="/assets/js/lunr.min.js"></script>
-    <script src="/assets/js/searchIndex.js"></script>
+	    <script src="/Cake.Tfx/assets/js/lunr.min.js"></script>
+    <script src="/Cake.Tfx/assets/js/searchIndex.js"></script>
     <div class="sidebar-form">
         <div class="input-group">
             <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
@@ -109,7 +111,7 @@
             } else {					
                 for(var i = 0; i < results.length; ++i){
                     var res = results[i];
-                    listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a></li>";
+                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
                 }				
             }
             listHtml += "</ul>";				
@@ -121,6 +123,13 @@
                 runSearch($("#search").val());
             });
         });
+
+        function htmlEscape(html) {
+            return document.createElement('div')
+                .appendChild(document.createTextNode(html))
+                .parentNode
+                .innerHTML;
+        }
     </script>
 	
     <hr>
@@ -130,8 +139,6 @@
 			<li class="header">Namespace</li>
 		<li><a href="/Cake.Tfx/api/Cake.Tfx">Cake<wbr>.Tfx</a></li>
 		<li role="separator" class="divider"></li>
-			<li class="header">Interface Types</li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder">ITfxArgumentBuilder</a></li>
 			<li class="header">Class Types</li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxAliases">TfxAliases</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxArgumentBuilder">TfxArgumentBuilder</a></li>
@@ -141,9 +148,12 @@
 			<li class="header">Enum Types</li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxAuthType">TfxAuthType</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxOutputType">TfxOutputType</a></li>
+			<li class="header">Interface Types</li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder">ITfxArgumentBuilder</a></li>
 
 
                     </ul>
+                            
                 </section>                
             </aside>
             
@@ -177,19 +187,36 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>Tool<wbr>&lt;TSettings&gt;<wbr></li>								
+											<li>Tool<wbr>&lt;&gt;<wbr></li>								
 									</ul>
 								</dd>				
 							
+								<dt>Derived Types</dt>
+								<dd>
+									<ul class="list-unstyled">
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner">Tfx<wbr>Extension<wbr>Share<wbr>Runner</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner">Tfx<wbr>Extension<wbr>Create<wbr>Runner</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner">Tfx<wbr>Extension<wbr>Publish<wbr>Runner</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner">Tfx<wbr>Extension<wbr>Install<wbr>Runner</a></li>								
+									</ul>
+								</dd>			
 							
 						</dl>
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
 							graph TD
-	Base0["Tool&lt;TSettings&gt;"]--&gt;Type
+	Base0["Tool&lt;&gt;"]--&gt;Type
 	Type["TfxTool&lt;TSettings&gt;"]
 class Type type-node
+	Type--&gt;Derived0["TfxExtensionShareRunner"]
+	click Derived0 "/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner"
+	Type--&gt;Derived1["TfxExtensionCreateRunner"]
+	click Derived1 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner"
+	Type--&gt;Derived2["TfxExtensionPublishRunner"]
+	click Derived2 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner"
+	Type--&gt;Derived3["TfxExtensionInstallRunner"]
+	click Derived3 "/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner"
 
 						</div>
 					</div>
@@ -259,7 +286,7 @@ class Type type-node
 						</thead>
 							<tbody><tr>
 								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1/95A6DCD8">Get<wbr>Tool<wbr>Executable<wbr>Names<wbr>()<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;string&gt;<wbr></td>
+								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
 								<td>
 									<div>
     Gets the possible names of the tool executable.
@@ -288,6 +315,7 @@ class Type type-node
 				</div>
 			</div>
 		
+
 
 
 	
