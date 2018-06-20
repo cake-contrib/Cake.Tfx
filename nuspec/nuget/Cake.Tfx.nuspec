@@ -15,10 +15,8 @@
     <tags>Cake, Script, Build, Tfx</tags>
   </metadata>
   <files>
-    <file src="net46\Cake.Tfx.dll" target="lib\net46" />
-    <file src="net46\Cake.Tfx.pdb" target="lib\net46" />
-    <file src="net46\Cake.Tfx.xml" target="lib\net46" />
     <file src="netstandard2.0\Cake.Tfx.dll" target="lib/netstandard2.0" />
     <file src="netstandard2.0\Cake.Tfx.pdb" target="lib/netstandard2.0" />
+    <file src="netstandard2.0\Cake.Tfx.xml" target="lib/netstandard2.0" />
   </files>
 </package>
