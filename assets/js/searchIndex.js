@@ -39,20 +39,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"TfxOutputType",
-            content:"TfxOutputType",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx/TfxOutputType',
-            title:"TfxOutputType",
-            description:""
-        }
-    );
-    a(
-        {
-            id:1,
             title:"TfxSettings",
             content:"TfxSettings",
             description:'',
@@ -66,7 +52,35 @@ var searchModule = function() {
     );
     a(
         {
+            id:1,
+            title:"TfxExtensionInstallRunner",
+            content:"TfxExtensionInstallRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner',
+            title:"TfxExtensionInstallRunner",
+            description:""
+        }
+    );
+    a(
+        {
             id:2,
+            title:"TfxOutputType",
+            content:"TfxOutputType",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx/TfxOutputType',
+            title:"TfxOutputType",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
             title:"TfxExtensionShareRunner",
             content:"TfxExtensionShareRunner",
             description:'',
@@ -80,63 +94,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:3,
-            title:"TfxArgumentBuilder",
-            content:"TfxArgumentBuilder",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx/TfxArgumentBuilder',
-            title:"TfxArgumentBuilder",
-            description:""
-        }
-    );
-    a(
-        {
             id:4,
-            title:"TfxExtensionInstallSettings",
-            content:"TfxExtensionInstallSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallSettings',
-            title:"TfxExtensionInstallSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"TfxExtensionShareSettings",
-            content:"TfxExtensionShareSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareSettings',
-            title:"TfxExtensionShareSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"TfxExtensionCreateRunner",
-            content:"TfxExtensionCreateRunner",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner',
-            title:"TfxExtensionCreateRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:7,
             title:"TfxTool",
             content:"TfxTool",
             description:'',
@@ -150,7 +108,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:8,
+            id:5,
             title:"ITfxArgumentBuilder",
             content:"ITfxArgumentBuilder",
             description:'',
@@ -164,49 +122,49 @@ var searchModule = function() {
     );
     a(
         {
+            id:6,
+            title:"TfxExtensionInstallSettings",
+            content:"TfxExtensionInstallSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallSettings',
+            title:"TfxExtensionInstallSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"TfxAuthType",
+            content:"TfxAuthType",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx/TfxAuthType',
+            title:"TfxAuthType",
+            description:""
+        }
+    );
+    a(
+        {
+            id:8,
+            title:"TfxExtensionCreateRunner",
+            content:"TfxExtensionCreateRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner',
+            title:"TfxExtensionCreateRunner",
+            description:""
+        }
+    );
+    a(
+        {
             id:9,
-            title:"TfxExtensionPublishRunner",
-            content:"TfxExtensionPublishRunner",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner',
-            title:"TfxExtensionPublishRunner",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
-            title:"TfxServerSettings",
-            content:"TfxServerSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx/TfxServerSettings',
-            title:"TfxServerSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
-            title:"TfxExtensionPublishSettings",
-            content:"TfxExtensionPublishSettings",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings',
-            title:"TfxExtensionPublishSettings",
-            description:""
-        }
-    );
-    a(
-        {
-            id:12,
             title:"ICreatePublishSettings",
             content:"ICreatePublishSettings",
             description:'',
@@ -220,15 +178,57 @@ var searchModule = function() {
     );
     a(
         {
-            id:13,
-            title:"TfxAuthType",
-            content:"TfxAuthType",
+            id:10,
+            title:"TfxExtensionPublishSettings",
+            content:"TfxExtensionPublishSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Tfx/api/Cake.Tfx/TfxAuthType',
-            title:"TfxAuthType",
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings',
+            title:"TfxExtensionPublishSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
+            title:"TfxArgumentBuilder",
+            content:"TfxArgumentBuilder",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx/TfxArgumentBuilder',
+            title:"TfxArgumentBuilder",
+            description:""
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"TfxExtensionCreateSettings",
+            content:"TfxExtensionCreateSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings',
+            title:"TfxExtensionCreateSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"TfxExtensionShareSettings",
+            content:"TfxExtensionShareSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareSettings',
+            title:"TfxExtensionShareSettings",
             description:""
         }
     );
@@ -249,28 +249,28 @@ var searchModule = function() {
     a(
         {
             id:15,
-            title:"TfxExtensionCreateSettings",
-            content:"TfxExtensionCreateSettings",
+            title:"TfxExtensionPublishRunner",
+            content:"TfxExtensionPublishRunner",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings',
-            title:"TfxExtensionCreateSettings",
+            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner',
+            title:"TfxExtensionPublishRunner",
             description:""
         }
     );
     a(
         {
             id:16,
-            title:"TfxExtensionInstallRunner",
-            content:"TfxExtensionInstallRunner",
+            title:"TfxServerSettings",
+            content:"TfxServerSettings",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner',
-            title:"TfxExtensionInstallRunner",
+            url:'/Cake.Tfx/api/Cake.Tfx/TfxServerSettings',
+            title:"TfxServerSettings",
             description:""
         }
     );
