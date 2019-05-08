@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Tfx - API - TfxTool&lt;TSettings&gt; Class</title>
-        <link href="/Cake.Tfx/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Tfx/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Tfx/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Tfx/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Tfx/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Tfx/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Tfx/assets/js/respond.min.js"></script>
@@ -139,15 +139,15 @@
 			<li class="header">Namespace</li>
 		<li><a href="/Cake.Tfx/api/Cake.Tfx">Cake<wbr>.Tfx</a></li>
 		<li role="separator" class="divider"></li>
-			<li class="header">Enum Types</li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxAuthType">TfxAuthType</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxOutputType">TfxOutputType</a></li>
 			<li class="header">Class Types</li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxAliases">TfxAliases</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxArgumentBuilder">TfxArgumentBuilder</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings">TfxServerSettings</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings">TfxSettings</a></li>
 				<li class="selected"><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1">TfxTool<wbr>&lt;TSettings&gt;<wbr></a></li>
+			<li class="header">Enum Types</li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxAuthType">TfxAuthType</a></li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxOutputType">TfxOutputType</a></li>
 			<li class="header">Interface Types</li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder">ITfxArgumentBuilder</a></li>
 
@@ -187,7 +187,7 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>Tool<wbr>&lt;&gt;<wbr></li>								
+											<li>Tool<wbr>&lt;<a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr></li>								
 									</ul>
 								</dd>				
 							
@@ -195,8 +195,8 @@
 								<dd>
 									<ul class="list-unstyled">
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner">Tfx<wbr>Extension<wbr>Create<wbr>Runner</a></li>								
-											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner">Tfx<wbr>Extension<wbr>Install<wbr>Runner</a></li>								
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner">Tfx<wbr>Extension<wbr>Publish<wbr>Runner</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner">Tfx<wbr>Extension<wbr>Install<wbr>Runner</a></li>								
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner">Tfx<wbr>Extension<wbr>Share<wbr>Runner</a></li>								
 									</ul>
 								</dd>			
@@ -205,17 +205,17 @@
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
-	Base0["Tool&lt;&gt;"]--&gt;Type
+							graph BT
+	Type--&gt;Base0["Tool&lt;TSettings&gt;"]
 	Type["TfxTool&lt;TSettings&gt;"]
 class Type type-node
-	Type--&gt;Derived0["TfxExtensionCreateRunner"]
+	Derived0["TfxExtensionCreateRunner"]--&gt;Type
 	click Derived0 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner"
-	Type--&gt;Derived1["TfxExtensionInstallRunner"]
-	click Derived1 "/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner"
-	Type--&gt;Derived2["TfxExtensionPublishRunner"]
-	click Derived2 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner"
-	Type--&gt;Derived3["TfxExtensionShareRunner"]
+	Derived1["TfxExtensionPublishRunner"]--&gt;Type
+	click Derived1 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner"
+	Derived2["TfxExtensionInstallRunner"]--&gt;Type
+	click Derived2 "/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner"
+	Derived3["TfxExtensionShareRunner"]--&gt;Type
 	click Derived3 "/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner"
 
 						</div>
@@ -247,6 +247,7 @@ class Type type-node
 			</tbody></table>
 		</div>
 	</div>	
+
 
 
 			<h1 id="Constructors">Constructors</h1>
@@ -286,7 +287,7 @@ class Type type-node
 						</thead>
 							<tbody><tr>
 								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1/95A6DCD8">Get<wbr>Tool<wbr>Executable<wbr>Names<wbr>()<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
+								<td>IEnumerable<wbr>&lt;string&gt;<wbr></td>
 								<td>
 									<div>
     Gets the possible names of the tool executable.
@@ -341,22 +342,53 @@ class Type type-node
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

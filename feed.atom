@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<link rel="self" href="http://cake-contrib.github.io/Cake.Tfx" />
 	<id>http://cake-contrib.github.io/Cake.Tfx</id>
 	<title>Cake.Tfx</title>
-	<rights>2018</rights>
-	<updated>2018-06-20T21:47:51Z</updated>
+	<link rel="self" href="http://cake-contrib.github.io/Cake.Tfx" />
+	<rights>2019</rights>
+	<updated>2019-05-08T21:12:14Z</updated>
 	<entry>
+		<id>http://cake-contrib.github.io/Cake.Tfx/blog/new-release-0.5.0</id>
+		<title>New Release - 0.5.0</title>
 		<author>
 			<name>gep13</name>
 		</author>
 		<link href="http://cake-contrib.github.io/Cake.Tfx/blog/new-release-0.5.0" />
-		<id>http://cake-contrib.github.io/Cake.Tfx/blog/new-release-0.5.0</id>
-		<title>New Release - 0.5.0</title>
 		<updated>2017-01-31T00:00:00Z</updated>
 		<content>&lt;h1 id="long-time-no-release"&gt;Long time, no release&lt;/h1&gt;
 &lt;p&gt;Thanks to a contribution from &amp;#64;devlead, we are releasing 0.5.0 of Cake.Tfx.  This includes the following:&lt;/p&gt;

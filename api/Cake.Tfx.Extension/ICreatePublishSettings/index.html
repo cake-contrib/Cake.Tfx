@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Tfx - API - ICreatePublishSettings Interface</title>
-        <link href="/Cake.Tfx/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Tfx/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Tfx/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Tfx/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Tfx/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Tfx/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Tfx/assets/js/respond.min.js"></script>
@@ -178,21 +178,21 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings">Tfx<wbr>Extension<wbr>Create<wbr>Settings</a></li>								
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings">Tfx<wbr>Extension<wbr>Publish<wbr>Settings</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings">Tfx<wbr>Extension<wbr>Create<wbr>Settings</a></li>								
 									</ul>
 								</dd>				
 						</dl>
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
+							graph BT
 	Type["ICreatePublishSettings"]
 class Type type-node
-	Type-.-&gt;Implementing0["TfxExtensionCreateSettings"]
-	click Implementing0 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings"
-	Type-.-&gt;Implementing1["TfxExtensionPublishSettings"]
-	click Implementing1 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings"
+	Implementing0["TfxExtensionPublishSettings"]-.-&gt;Type
+	click Implementing0 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishSettings"
+	Implementing1["TfxExtensionCreateSettings"]-.-&gt;Type
+	click Implementing1 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateSettings"
 
 						</div>
 					</div>
@@ -202,6 +202,7 @@ class Type type-node
 
 	<h1 id="Syntax">Syntax</h1>
 	<pre><code>public interface ICreatePublishSettings</code></pre>
+
 
 
 
@@ -251,7 +252,7 @@ class Type type-node
 							</tr>
 							<tr>
 								<td><a href="/Cake.Tfx/api/Cake.Tfx.Extension/ICreatePublishSettings/1F1245C0">ManifestGlobs</a></td>
-								<td>ICollection<wbr>&lt;T&gt;<wbr></td>
+								<td>ICollection<wbr>&lt;string&gt;<wbr></td>
 								<td>
 									<div>
     Gets or sets the List of globs to find manifests.
@@ -334,22 +335,53 @@ class Type type-node
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

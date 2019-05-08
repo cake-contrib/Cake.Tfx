@@ -1,19 +1,21 @@
-﻿<!DOCTYPE html><html><head>
+﻿<!DOCTYPE html>
+<html>
+    <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="description">
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="description" />
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Tfx - API - TfxServerSettings.UserName Property</title>
+        <title>Cake.Tfx - Labels</title>
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
-        <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
-        <link href="/Cake.Tfx/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
-        <link href="/Cake.Tfx/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="/Cake.Tfx/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
+        <link href="/Cake.Tfx/assets/css/theme/theme.css" rel="stylesheet" />
         <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/Cake.Tfx/assets/css/override.css" rel="stylesheet">
+        <link href="/Cake.Tfx/assets/css/override.css" rel="stylesheet" />
         <script src="/Cake.Tfx/assets/js/jquery-2.2.3.min.js"></script>
         <script src="/Cake.Tfx/assets/js/bootstrap.min.js"></script>        
         <script src="/Cake.Tfx/assets/js/app.min.js"></script>         
@@ -57,9 +59,9 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Tfx/docs">Documentation</a></li>
-        <li><a href="/Cake.Tfx/tasks">Tasks</a></li>
+        <li class="active"><a href="/Cake.Tfx/tasks">Tasks</a></li>
         <li><a href="/Cake.Tfx/blog">Blog</a></li>
-        <li class="active"><a href="/Cake.Tfx/api">API</a></li>
+        <li><a href="/Cake.Tfx/api">API</a></li>
  
                         </ul>       
                     </div>
@@ -73,85 +75,72 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Value">Value</a></p>
-<hr class="infobar-hidden">
-</div>
+        <div><p><a href="https://github.com/cake-contrib/Cake.Tfx/tree/develop/docs/input/tasks/Labels.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+    <div id="infobar-headings"></div>
 
                 </section>
                 <section class="sidebar">    
                                      
-                    	
-	    <script src="/Cake.Tfx/assets/js/lunr.min.js"></script>
-    <script src="/Cake.Tfx/assets/js/searchIndex.js"></script>
-    <div class="sidebar-form">
-        <div class="input-group">
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
-            <span class="input-group-btn">
-                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
-            </span>
-        </div>
-    </div>
-    <div id="search-results">
-    </div>
-    <script>
-        function runSearch(query){
-            $("#search-results").empty();			
-            if( query.length < 2 ){
-                return;
-            }			
-            var results = searchModule.search("*" + query + "*");
-            var listHtml = "<ul class='sidebar-menu'>";	
-            listHtml += "<li class='header'>Type Results</li>";	
-            if(results.length == 0 ){
-                listHtml += "<li>No results found</li>";
-            } else {					
-                for(var i = 0; i < results.length; ++i){
-                    var res = results[i];
-                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
-                }				
-            }
-            listHtml += "</ul>";				
-            $("#search-results").append(listHtml);
-        }
-
-        $(document).ready(function(){
-            $("#search").on('input propertychange paste', function() {
-                runSearch($("#search").val());
-            });
-        });
-
-        function htmlEscape(html) {
-            return document.createElement('div')
-                .appendChild(document.createTextNode(html))
-                .parentNode
-                .innerHTML;
-        }
-    </script>
-	
-    <hr>
+                    
 
                     <ul class="sidebar-menu">
                         
-			<li class="header">Namespace</li>
-		<li><a href="/Cake.Tfx/api/Cake.Tfx">Cake<wbr>.Tfx</a></li>
-		<li class="header">Type</li>
-		<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings">TfxServerSettings</a></li>
-		<li role="separator" class="divider"></li>
-			<li class="header">Property Members</li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings/CB65A1D2">AuthType</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings/30C821B5">ExtensionId</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings/38813167">NoPrompt</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings/44497BD4">Output</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings/8EF70914">Password</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings/820281FF">Proxy</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings/C6115FB5">Publisher</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings/87BD22F8">Save</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings/D6490FA2">ServiceUrl</a></li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings/076AC4D3">Token</a></li>
-				<li class="selected"><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings/1218A779">UserName</a></li>
 
+                <li><a href="/Cake.Tfx/tasks/Analyze">Analyze</a></li>
+                <li><a href="/Cake.Tfx/tasks/AppVeyor">Appveyor</a></li>
+                <li><a href="/Cake.Tfx/tasks/Build">Build</a></li>
+                <li><a href="/Cake.Tfx/tasks/Clean">Clean</a></li>
+                <li><a href="/Cake.Tfx/tasks/Clean-Documentation">Clean Documentation</a></li>
+                <li><a href="/Cake.Tfx/tasks/Clear-AppVeyor-Cache">Clear Appveyor Cache</a></li>
+                <li><a href="/Cake.Tfx/tasks/ClearCache">Clearcache</a></li>
+                <li><a href="/Cake.Tfx/tasks/Create-Chocolatey-Packages">Create Chocolatey Packages</a></li>
+                <li><a href="/Cake.Tfx/tasks/Create-Default-Labels">Create Default Labels</a></li>
+                <li><a href="/Cake.Tfx/tasks/Create-Nuget-Package">Create Nuget Package</a></li>
+                <li><a href="/Cake.Tfx/tasks/Create-NuGet-Packages">Create Nuget Packages</a></li>
+                <li><a href="/Cake.Tfx/tasks/Create-Release-Notes">Create Release Notes</a></li>
+                <li><a href="/Cake.Tfx/tasks/CreateIssuesReport">Createissuesreport</a></li>
+                <li><a href="/Cake.Tfx/tasks/Default">Default</a></li>
+                <li><a href="/Cake.Tfx/tasks/Deploy-Graph-Documentation">Deploy Graph Documentation</a></li>
+                <li><a href="/Cake.Tfx/tasks/DotNetCore-Build">Dotnetcore Build</a></li>
+                <li><a href="/Cake.Tfx/tasks/DotNetCore-Pack">Dotnetcore Pack</a></li>
+                <li><a href="/Cake.Tfx/tasks/DotNetCore-Restore">Dotnetcore Restore</a></li>
+                <li><a href="/Cake.Tfx/tasks/DotNetCore-Test">Dotnetcore Test</a></li>
+                <li><a href="/Cake.Tfx/tasks/DupFinder">Dupfinder</a></li>
+                <li><a href="/Cake.Tfx/tasks/Export-Release-Notes">Export Release Notes</a></li>
+                <li><a href="/Cake.Tfx/tasks/Force-Publish-Documentation">Force Publish Documentation</a></li>
+                <li><a href="/Cake.Tfx/tasks/InspectCode">Inspectcode</a></li>
+                <li><a href="/Cake.Tfx/tasks/Install-OpenCover">Install Opencover</a></li>
+                <li><a href="/Cake.Tfx/tasks/Install-ReportGenerator">Install Reportgenerator</a></li>
+                <li><a href="/Cake.Tfx/tasks/Install-ReportUnit">Install Reportunit</a></li>
+                <li class="selected"><a href="/Cake.Tfx/tasks/Labels">Labels</a></li>
+                <li><a href="/Cake.Tfx/tasks/Package">Package</a></li>
+                <li><a href="/Cake.Tfx/tasks/Preview">Preview</a></li>
+                <li><a href="/Cake.Tfx/tasks/Preview-Documentation">Preview Documentation</a></li>
+                <li><a href="/Cake.Tfx/tasks/Print-AppVeyor-Environment-Variables">Print Appveyor Environment Variables</a></li>
+                <li><a href="/Cake.Tfx/tasks/Publish-Chocolatey-Packages">Publish Chocolatey Packages</a></li>
+                <li><a href="/Cake.Tfx/tasks/Publish-Documentation">Publish Documentation</a></li>
+                <li><a href="/Cake.Tfx/tasks/Publish-GitHub-Release">Publish Github Release</a></li>
+                <li><a href="/Cake.Tfx/tasks/Publish-MyGet-Packages">Publish Myget Packages</a></li>
+                <li><a href="/Cake.Tfx/tasks/Publish-Nuget-Packages">Publish Nuget Packages</a></li>
+                <li><a href="/Cake.Tfx/tasks/PublishDocs">Publishdocs</a></li>
+                <li><a href="/Cake.Tfx/tasks/ReleaseNotes">Releasenotes</a></li>
+                <li><a href="/Cake.Tfx/tasks/Restore">Restore</a></li>
+                <li><a href="/Cake.Tfx/tasks/Run-Integration-Tests">Run Integration Tests</a></li>
+                <li><a href="/Cake.Tfx/tasks/Show-Info">Show Info</a></li>
+                <li><a href="/Cake.Tfx/tasks/Test">Test</a></li>
+                <li><a href="/Cake.Tfx/tasks/Test-Fixie">Test Fixie</a></li>
+                <li><a href="/Cake.Tfx/tasks/Test-MSTest">Test Mstest</a></li>
+                <li><a href="/Cake.Tfx/tasks/Test-NUnit">Test Nunit</a></li>
+                <li><a href="/Cake.Tfx/tasks/Test-VSTest">Test Vstest</a></li>
+                <li><a href="/Cake.Tfx/tasks/Test-xUnit">Test Xunit</a></li>
+                <li><a href="/Cake.Tfx/tasks/Transifex-Pull-Translations">Transifex Pull Translations</a></li>
+                <li><a href="/Cake.Tfx/tasks/Transifex-Push-SourceFiles">Transifex Push Sourcefiles</a></li>
+                <li><a href="/Cake.Tfx/tasks/Transifex-Push-Translations">Transifex Push Translations</a></li>
+                <li><a href="/Cake.Tfx/tasks/Transifex-Setup">Transifex Setup</a></li>
+                <li><a href="/Cake.Tfx/tasks/Upload-AppVeyor-Artifacts">Upload Appveyor Artifacts</a></li>
+                <li><a href="/Cake.Tfx/tasks/Upload-Codecov-Report">Upload Codecov Report</a></li>
+                <li><a href="/Cake.Tfx/tasks/Upload-Coverage-Report">Upload Coverage Report</a></li>
+                <li><a href="/Cake.Tfx/tasks/Upload-Coveralls-Report">Upload Coveralls Report</a></li>
 
                     </ul>
                             
@@ -164,60 +153,16 @@
 
 
 
-<section class="content-header">
-			<h3><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings">TfxServerSettings</a>.</h3>
-	<h1>UserName <small>Property</small></h1>
-</section>
-<section class="content">
-	
-	
-		<h1 id="Summary">Summary</h1>
-	<div class="lead">
-    Gets or sets the Username to use for basic authentication.
-    </div>
+		<section class="content-header">
+			<h1>Labels</h1>
+		</section>
+	<section class="content">
+		<div class="mermaid">
+graph TD;
+Labels-->Create-Default-Labels;
+</div>
 
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<dl class="dl-horizontal">	
-						
-						<dt>Namespace</dt>
-						<dd><a href="/Cake.Tfx/api/Cake.Tfx">Cake<wbr>.Tfx</a></dd>
-					
-						<dt>Containing Type</dt>
-						<dd><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings">TfxServerSettings</a></dd>		
-					
-				</dl>
-  			</div>
-		</div>
-
-	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public string UserName { get; set; }</code></pre>
-
-
-
-
-
-	<h1 id="Value">Value</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody><tr>
-					<td>string</td>
-					<td></td>
-				</tr>
-			</tbody></table>
-		</div>
-	</div>	
-
-
-	
-</section>
+	</section>
                 
             </div>           
             
@@ -302,5 +247,5 @@
                 }, 500);
             });
         </script>
-    
-</body></html>
+    </body>
+</html>

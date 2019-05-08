@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Tfx - API - Cake.Tfx Namespace</title>
-        <link href="/Cake.Tfx/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.Tfx/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Tfx/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Tfx/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Tfx/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Tfx/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Tfx/assets/js/respond.min.js"></script>
@@ -74,8 +74,8 @@
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#EnumTypes">Enum Types</a></p>
 <p><a href="#ClassTypes">Class Types</a></p>
+<p><a href="#EnumTypes">Enum Types</a></p>
 <p><a href="#InterfaceTypes">Interface Types</a></p>
 <p><a href="#Namespaces">Namespaces</a></p>
 <hr class="infobar-hidden">
@@ -178,32 +178,7 @@
     </div>
 
 
-			<h1 id="EnumTypes">Enum Types</h1>
-			<div class="box">
-				<div class="box-body no-padding table-responsive">
-					<table class="table table-striped table-hover two-cols">
-						<thead>
-							<tr>
-								<th>Enum</th>
-									<th>Summary</th>
-							</tr>
-						</thead>
-							<tbody><tr>
-								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxAuthType">TfxAuthType</a></td>
-									<td>
-    The authentication type to use for Tfx commands
-    </td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxOutputType">TfxOutputType</a></td>
-									<td>
-    The output type for the Tfx commands
-    </td>
-							</tr>
-					</tbody></table>
-				</div>
-			</div>
-		
+
 			<h1 id="ClassTypes">Class Types</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -244,7 +219,7 @@
     </td>
 							</tr>
 							<tr>
-								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1">TfxTool<wbr>&lt;TSettings&gt;<wbr></a></td>
+								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1">TfxTool</a><wbr>&lt;<a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr></td>
 									<td>
     Base class for all Tfx related tools.
     </td>
@@ -253,6 +228,34 @@
 				</div>
 			</div>
 		
+
+			<h1 id="EnumTypes">Enum Types</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover two-cols">
+						<thead>
+							<tr>
+								<th>Enum</th>
+									<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxAuthType">TfxAuthType</a></td>
+									<td>
+    The authentication type to use for Tfx commands
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.Tfx/api/Cake.Tfx/TfxOutputType">TfxOutputType</a></td>
+									<td>
+    The output type for the Tfx commands
+    </td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+
 			<h1 id="InterfaceTypes">Interface Types</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -273,6 +276,7 @@
 				</div>
 			</div>
 		
+
 			<h1 id="Namespaces">Namespaces</h1>
 			<div class="box">
 				<div class="box-body no-padding table-responsive">
@@ -316,22 +320,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

@@ -9,7 +9,6 @@
         <link rel="shortcut icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Tfx/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Tfx - Documentation</title>
-        <link href="/Cake.Tfx/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Tfx/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="/Cake.Tfx/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
@@ -24,6 +23,7 @@
         <script src="/Cake.Tfx/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Tfx/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Tfx/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Tfx/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Tfx/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Tfx/assets/js/respond.min.js"></script>
@@ -85,10 +85,12 @@
 
                     <ul class="sidebar-menu">
                         
+
                 <li class="treeview">
                     <a href="/Cake.Tfx/docs/usage">Usage</a> <a href="#" class="expand"></a>
                     <ul class="treeview-menu">
-                                        <li><a href="/Cake.Tfx/docs/usage/examples">Examples</a></li>
+                        
+                <li><a href="/Cake.Tfx/docs/usage/examples">Examples</a></li>
 
                     </ul>
                 </li>
@@ -104,9 +106,9 @@
 
 
 
-	<section class="content-header">
-		<h1>Documentation</h1>
-	</section>
+		<section class="content-header">
+			<h1>Documentation</h1>
+		</section>
 	<section class="content">
 		<p>This user guide, like Cake.Tfx itself, is under very active development. Some parts of it aren't 
 documented as completely as they need to be, but we gladly accept your contributions.</p>
@@ -153,22 +155,53 @@ would like to add then you can edit the content directly on GitHub.</p>
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top
