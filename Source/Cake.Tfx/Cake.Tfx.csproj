@@ -1,7 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>full</DebugType>
   </PropertyGroup>
   <PropertyGroup>
     <CodeAnalysisRuleSet>Cake.Tfx.ruleset</CodeAnalysisRuleSet>
@@ -11,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.28.0" PrivateAssets="All" />
+    <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
