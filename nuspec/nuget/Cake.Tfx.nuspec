@@ -8,7 +8,7 @@
     <description>Cake Tfx AddIn.</description>
     <summary>Cake AddIn that extends Cake with ability to execute the tfx command line utility.</summary>
     <license type="expression">MIT</license>
-    <repository type="git" url="https://github.com/cake-contrib/Cake.Tfx"/>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.Tfx.git"/>
     <projectUrl>https://github.com/cake-contrib/Cake.Tfx/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
