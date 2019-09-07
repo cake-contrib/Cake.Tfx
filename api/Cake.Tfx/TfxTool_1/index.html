@@ -145,11 +145,11 @@
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxServerSettings">TfxServerSettings</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxSettings">TfxSettings</a></li>
 				<li class="selected"><a href="/Cake.Tfx/api/Cake.Tfx/TfxTool_1">TfxTool<wbr>&lt;TSettings&gt;<wbr></a></li>
-			<li class="header">Interface Types</li>
-				<li><a href="/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder">ITfxArgumentBuilder</a></li>
 			<li class="header">Enum Types</li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxAuthType">TfxAuthType</a></li>
 				<li><a href="/Cake.Tfx/api/Cake.Tfx/TfxOutputType">TfxOutputType</a></li>
+			<li class="header">Interface Types</li>
+				<li><a href="/Cake.Tfx/api/Cake.Tfx/ITfxArgumentBuilder">ITfxArgumentBuilder</a></li>
 
 
                     </ul>
@@ -194,10 +194,10 @@
 								<dt>Derived Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner">Tfx<wbr>Extension<wbr>Create<wbr>Runner</a></li>								
-											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner">Tfx<wbr>Extension<wbr>Publish<wbr>Runner</a></li>								
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner">Tfx<wbr>Extension<wbr>Install<wbr>Runner</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner">Tfx<wbr>Extension<wbr>Publish<wbr>Runner</a></li>								
 											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner">Tfx<wbr>Extension<wbr>Share<wbr>Runner</a></li>								
+											<li><a href="/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner">Tfx<wbr>Extension<wbr>Create<wbr>Runner</a></li>								
 									</ul>
 								</dd>			
 							
@@ -209,14 +209,14 @@
 	Type--&gt;Base0["Tool&lt;TSettings&gt;"]
 	Type["TfxTool&lt;TSettings&gt;"]
 class Type type-node
-	Derived0["TfxExtensionCreateRunner"]--&gt;Type
-	click Derived0 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner"
+	Derived0["TfxExtensionInstallRunner"]--&gt;Type
+	click Derived0 "/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner"
 	Derived1["TfxExtensionPublishRunner"]--&gt;Type
 	click Derived1 "/Cake.Tfx/api/Cake.Tfx.Extension.Publish/TfxExtensionPublishRunner"
-	Derived2["TfxExtensionInstallRunner"]--&gt;Type
-	click Derived2 "/Cake.Tfx/api/Cake.Tfx.Extension.Install/TfxExtensionInstallRunner"
-	Derived3["TfxExtensionShareRunner"]--&gt;Type
-	click Derived3 "/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner"
+	Derived2["TfxExtensionShareRunner"]--&gt;Type
+	click Derived2 "/Cake.Tfx/api/Cake.Tfx.Extension.Share/TfxExtensionShareRunner"
+	Derived3["TfxExtensionCreateRunner"]--&gt;Type
+	click Derived3 "/Cake.Tfx/api/Cake.Tfx.Extension.Create/TfxExtensionCreateRunner"
 
 						</div>
 					</div>
