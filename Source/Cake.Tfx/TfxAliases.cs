@@ -35,7 +35,7 @@ namespace Cake.Tfx
         /// <code>
         /// TfxExtensionCreate(new TfxExtensionCreateSettings()
         /// {
-        ///     ManifestGlobs = new List&lt;string&gt;(){ ".\extension-manifest.json" }
+        ///     ManifestGlobs = new List&lt;string&gt;(){ @".\extension-manifest.json" }
         /// });
         /// </code>
         /// </example>
@@ -78,7 +78,7 @@ namespace Cake.Tfx
         /// <code>
         /// TfxExtensionPublish(new TfxExtensionPublishSettings()
         /// {
-        ///     ManifestGlobs = new List&lt;string&gt;(){ ".\extension-manifest.json" },
+        ///     ManifestGlobs = new List&lt;string&gt;(){ @".\extension-manifest.json" },
         ///     AuthType = TfxAuthType.Pat,
         ///     Token = "abcdef"
         /// });
